@@ -1,17 +1,19 @@
 <?php
 
-require('model.php');
+require_once('model.php');
 
 function listPosts()
 {
-    $posts = getPosts();
+    $postManager = new PostManager(); // Création de l'instance
+    $posts = $postManager->getPosts(); // Appel de la méthode
 
     require('homeView.php');
 }
 
 function post()
 {
-    $post = getPost($_GET['id']);
+    $postManager = new PostManager();
+    $post = $postManager->getPost($_GET['id']);
 
     require('postView.php');
 }
