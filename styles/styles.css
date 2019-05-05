@@ -9,11 +9,18 @@
     font-family: 'Coming Soon', cursive;
 }
 
+a {
+    text-decoration:none;
+    color:#586F99;
+    font-weight:bold;
+}
+
+
 /* * * * * * * * * * * * */
 /* H * E * A * D * E * R */
 /* * * * * * * * * * * * */
 
-header h1, header h3 {
+header h1, header h3, header div {
     text-align : center;
     font-family: 'Homemade Apple', cursive;
     padding:15px;
@@ -24,10 +31,15 @@ header img {
     margin-left:25%;
 }
 
+menu {
+    width:90%;
+    margin:auto;
+}
+
 menu div {
-    padding:10px 0;
+    padding:15px 0;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 menu hr {
@@ -35,9 +47,8 @@ menu hr {
     background-color:black;
 }
 
-menu p {
-    font-family: 'Homemade Apple', cursive;
-    font-weight:bold;
+h4 {
+    font-size:1.2em;
 }
 
 
@@ -58,4 +69,19 @@ h4 {
 #signature {
     height:30px;
     padding-left:10px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * */
+/* S * I * N * G * L * E * * * P * O * S * T * S */
+/* * * * * * * * * * * * * * * * * * * * * * * * */
+
+.nav_disabled {
+    visibility:hidden;
+}
+
+#single_post {
+    width:90%;
+    margin:50px auto;
+    text-align:justify;
 }

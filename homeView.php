@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
 
-        <title>Billet simple pour l'Alaska : le blog</title>
+        <title>Billet simple pour l'Alaska : le blog du roman</title>
 
         <meta name="description" content="Le nouveau roman de Jean Forteroche, en publication exclusive, ici, par épisodes">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -32,8 +32,10 @@
         <menu>
             <hr>
             <div>
-                <p>Aller au premier chapitre</p>
-                <p>Voir la liste des chapitres</p>
+                <p><a href="#">A propos de l'auteur</a></p>
+                <p><a href="#">Le roman</a></p>
+                <p><a href="#">Liste des chapitres publiés</a></p>
+                <p><a href="#">Contact</a></p>
             </div>
             <hr>
         </menu>

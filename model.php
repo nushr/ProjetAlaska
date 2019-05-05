@@ -20,7 +20,7 @@ class PostManager
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT date_creation,titre,contenu,auteur FROM articles WHERE id = ?');
+        $req = $db->prepare('SELECT date_creation,titre,contenu,auteur,id FROM articles WHERE id = ?');
 
         $req->execute(array($postId));
 

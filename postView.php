@@ -30,16 +30,32 @@
         <menu>
             <hr>
             <div>
-                <p>Chapitre précédent</p>
-                <p>Chapitre suivant</p>
+                <?php
+                if ($post['id']>1)
+                {
+                    ?><p><a href="index.php?action=post&amp;id=<?= $post['id']-1 ?>">Chapitre précédent</a></p><?php
+                }
+                else {
+                    ?><p class="nav_disabled">Chapitre précédent</p><?php
+                }
+                ?>
+                <p><a href="index.php">Retour à l'accueil</a></p>
+                <?php
+                if ($post['id']<6)
+                {
+                    ?><p><a href="index.php?action=post&amp;id=<?= $post['id']+1 ?>">Chapitre suivant</a></p><?php
+                }
+                else
+                {
+                    ?><p class="nav_disabled">Chapitre suivant</p><?php
+                }
+                ?>
             </div>
             <hr>
         </menu>
 
-        <div><a href="index.php">Retour à l'accueil du site</a></div>
-
-        <div>
-            <h3><?= $post['titre'] ?></h3>
+        <div id="single_post">
+            <h3><?= $post['titre'] ?></h3><br>
             <p><?= $post['contenu'] ?></p>
         </div>
 
