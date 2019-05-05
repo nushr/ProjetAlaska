@@ -46,7 +46,7 @@
             ?>
             <div id="last_posts">
                 <h4><?= $data['titre'] ?></h4>
-                <p><?= substr($data['contenu'],0,700) ?>... <a href="post.php?id=<?= $data['id'] ?>">Voir plus</a></p>
+                <p><?= substr($data['contenu'],0,700) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir plus</a></p>
                 <p>
                     <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
                     <img id="signature" alt="signature" src="assets/signature.png">
