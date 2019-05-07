@@ -42,6 +42,10 @@ menu div {
     justify-content: space-between;
 }
 
+menu div p a {
+    font-family:'Homemade Apple', cursive;
+}
+
 menu hr {
     height:3px;
     background-color:black;
@@ -60,10 +64,6 @@ h4 {
     width:90%;
     margin: 50px auto;
     text-align:justify;
-}
-
-h4 {
-    font-family: 'Homemade Apple', cursive;
 }
 
 #signature {

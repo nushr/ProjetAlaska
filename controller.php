@@ -1,6 +1,7 @@
 <?php
 
-require_once('model.php');
+require_once('PostManager.php');
+require_once('CommentManager.php');
 
 function listPosts()
 {
