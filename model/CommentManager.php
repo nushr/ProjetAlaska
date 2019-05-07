@@ -21,7 +21,7 @@ class CommentManager extends Manager
 
         $db = $this->dbConnect();
 
-        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu) VALUES ?, ?, CURRENT_DATE(), ?');
+        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu, ) VALUES ?, ?, CURRENT_DATE(), ?');
         $affectedLines = $comment->execute(array($postId, $author, $message));
 
         return $affectedLines;

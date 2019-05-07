@@ -29,7 +29,7 @@ try {
             {
                 if (!empty($_POST['author']) && !empty($_POST['message']))
                 {
-                    postComment($_GET['id'], $_POST['author'], $_POST['message']);
+                    addComment($_GET['id'], $_POST['author'], $_POST['message']);
                 }
                 else
                 {

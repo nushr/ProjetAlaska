@@ -75,7 +75,7 @@
                 }
                 ?>
             </div>
-            <h3 id="add_comment">Ajouter un commentaire</h3>
+            <h3 id="add_comment">Ajouter un commentaire</h3><br>
             <div id="add_comment_block">
                 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     <div>

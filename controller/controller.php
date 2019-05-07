@@ -23,14 +23,16 @@ function post()
     require('view/postView.php');
 }
 
-function postComment($postId, $author, $message)
+function addComment($postId, $author, $message)
 {
 
-    $affectedLines = postComment($postId, $author, $message);
+    $commentManager = new CommentManager();
+
+    $affectedLines = $commentManager->postComment($postId, $author, $message);
 
     if ($affectedLines === false)
     {
-        throw new Exception('Erreur dans le ajout du commentaire');
+        throw new Exception('Error in adding comment, sorry');
     }
     else
     {
