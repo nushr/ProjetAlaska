@@ -56,24 +56,44 @@
 
         <div id="single_post">
             <h3><?= $post['titre'] ?></h3><br>
-            <p><?= $post['contenu'] ?></p>
+            <p><?= $post['contenu'] ?></p><br>
+            <p><img src="public/assets/signature.png"></p>
             <br>
-            <h3>Commentaires (<?= $nbComments ?>)</h3><br>
-            <?php
-            while ($comment = $comments->fetch())
-            {
-                $date_creation_fr = DateTime::createFromFormat('Y-m-d', $comment['date_creation']);
-                ?>
-                <div>
-                    <p><i>" <?= $comment['contenu'] ?> "</i></p>
-                    <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?></p>
-                    <br>
-                </div>
+            <h3 id="see_comments">Afficher les commentaires (<?= $nbComments ?>)</h3><br>
+            <div id="comments_block">
                 <?php
-            }
-            ?>
-
+                while ($comment = $comments->fetch())
+                {
+                    $date_creation_fr = DateTime::createFromFormat('Y-m-d', $comment['date_creation']);
+                    ?>
+                    <div>
+                        <p><i>" <?= $comment['contenu'] ?> "</i></p>
+                        <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?>. <span id="comment_signal">Signaler</span></p>
+                        <br>
+                    </div>
+                    <?php
+                }
+                ?>
+            </div>
+            <h3 id="add_comment">Ajouter un commentaire</h3>
+            <div id="add_comment_block">
+                <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+                    <div>
+                        <label for="author">Pseudo</label><br>
+                        <input type="text" id="author" name="author">
+                    </div>
+                    <div>
+                        <label for="message">Commentaire</label><br>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+                </form>
+            </div>
         </div>
+
+        <script src="public/script/script.js"></script>
 
     </body>
 

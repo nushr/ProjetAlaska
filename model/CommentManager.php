@@ -16,6 +16,17 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function postComment($postId, $author, $message)
+    {
+
+        $db = $this->dbConnect();
+
+        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu) VALUES ?, ?, CURRENT_DATE(), ?');
+        $affectedLines = $comment->execute(array($postId, $author, $message));
+
+        return $affectedLines;
+    }
+
 
     public function countComments($postId)
     {

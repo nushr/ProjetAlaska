@@ -23,6 +23,23 @@ try {
                 throw new Exception('Mince ! Aucun chapitre ici !');
             }
         }
+        elseif ($_GET['action'] == 'addComment')
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                if (!empty($_POST['author']) && !empty($_POST['message']))
+                {
+                    postComment($_GET['id'], $_POST['author'], $_POST['message']);
+                }
+                else
+                {
+                    echo 'Erreur : tous les champs ne sont pas remplis';
+                }
+            }
+            else {
+                echo 'Erreur : pas de chapitre correspondant';
+            }
+        }
     }
     else {
         listPosts();

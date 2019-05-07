@@ -23,5 +23,19 @@ function post()
     require('view/postView.php');
 }
 
+function postComment($postId, $author, $message)
+{
+
+    $affectedLines = postComment($postId, $author, $message);
+
+    if ($affectedLines === false)
+    {
+        throw new Exception('Erreur dans le ajout du commentaire');
+    }
+    else
+    {
+        header('Location : index.php?action=post&id=' . $postId);
+    }
+}
 
 // No closing tag on purpose

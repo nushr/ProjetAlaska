@@ -85,3 +85,23 @@ h4 {
     margin:50px auto;
     text-align:justify;
 }
+
+#see_comments, #add_comment {
+    color:#586F99;
+}
+
+#see_comments:hover, #add_comment:hover {
+    cursor:pointer;
+}
+
+#comments_block, #add_comment_block {
+    display:none;
+}
+
+#comment_signal {
+    color:red;
+}
+
+#comment_signal:hover {
+    cursor:pointer;
+}
