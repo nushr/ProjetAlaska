@@ -1,6 +1,8 @@
 <?php
 
-class CommentManager
+require_once('model/Manager.php');
+
+class CommentManager extends Manager
 {
 
     public function getComments($postId)
@@ -25,21 +27,5 @@ class CommentManager
         return $nbComments;
     }
 
-
-    private function dbConnect()
-    {
-
-        try
-        {
-            $db = new PDO('mysql:host=localhost;dbname=alaska;charset=utf8', 'root', '');
-            return $db;
-        }
-
-        catch (\Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
-
-    }
 
 }

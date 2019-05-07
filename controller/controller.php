@@ -1,14 +1,14 @@
 <?php
 
-require_once('PostManager.php');
-require_once('CommentManager.php');
+require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
 
 function listPosts()
 {
     $postManager = new PostManager(); // Création de l'instance
     $posts = $postManager->getPosts(); // Appel de la méthode
 
-    require('homeView.php');
+    require('view/homeView.php');
 }
 
 function post()
@@ -20,7 +20,7 @@ function post()
     $comments = $commentManager->getComments($_GET['id']);
     $nbComments = $commentManager->countComments($_GET['id']);
 
-    require('postView.php');
+    require('view/postView.php');
 }
 
 
