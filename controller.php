@@ -18,6 +18,7 @@ function post()
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
+    $nbComments = $commentManager->countComments($_GET['id']);
 
     require('postView.php');
 }

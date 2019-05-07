@@ -20,7 +20,11 @@ a {
 /* H * E * A * D * E * R */
 /* * * * * * * * * * * * */
 
-header h1, header h3, header div {
+header h3 {
+    margin-bottom:10px;
+}
+
+header h1, header h3 {
     text-align : center;
     font-family: 'Homemade Apple', cursive;
     padding:15px;
@@ -40,10 +44,6 @@ menu div {
     padding:15px 0;
     display:flex;
     justify-content: space-between;
-}
-
-menu div p a {
-    font-family:'Homemade Apple', cursive;
 }
 
 menu hr {

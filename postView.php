@@ -58,15 +58,15 @@
             <h3><?= $post['titre'] ?></h3><br>
             <p><?= $post['contenu'] ?></p>
             <br>
-            <h3>Commentaires</h3>
+            <h3>Commentaires (<?= $nbComments ?>)</h3><br>
             <?php
             while ($comment = $comments->fetch())
             {
                 $date_creation_fr = DateTime::createFromFormat('Y-m-d', $comment['date_creation']);
                 ?>
                 <div>
-                    <p><i><?= $comment['contenu'] ?></i></p>
-                    <p>Publié par <?= $comment['auteur'] ?> le <?= $date_creation_fr->format('d/m/Y') ?></p>
+                    <p><i>" <?= $comment['contenu'] ?> "</i></p>
+                    <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?></p>
                     <br>
                 </div>
                 <?php

@@ -14,6 +14,18 @@ class CommentManager
         return $comments;
     }
 
+
+    public function countComments($postId)
+    {
+
+        $db = $this->dBConnect();
+
+        $nbComments = $db->query('SELECT COUNT(id) FROM commentaires WHERE post_id = ?');
+
+        return $nbComments;
+    }
+
+
     private function dbConnect()
     {
 
