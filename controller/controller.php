@@ -40,4 +40,15 @@ function addComment($postId, $author, $message)
     }
 }
 
+function signalComment($commentId)
+{
+
+    $commentManager = new CommentManager();
+
+    $signal = $commentManager->signalComment($commentId);
+
+    header('Location : index.php');
+    
+}
+
 // No closing tag on purpose

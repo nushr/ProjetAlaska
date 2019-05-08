@@ -16,15 +16,26 @@ class CommentManager extends Manager
         return $comments;
     }
 
+
     public function postComment($postId, $author, $message)
     {
 
         $db = $this->dbConnect();
 
-        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu, ) VALUES ?, ?, CURRENT_DATE(), ?');
-        $affectedLines = $comment->execute(array($postId, $author, $message));
+        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu, ) VALUES ?, ?, ?, ?');
+        $affectedLines = $comment->execute(array($postId, $author, CURRENT_DATE(), $message));
 
         return $affectedLines;
+    }
+
+    public function signalComment($commentId)
+    {
+
+        $db = $this->dbConnect();
+
+        $signal = $db->exec('UPDATE commentaires SET signale = 1 WHERE id = ?');
+
+        return $signal;
     }
 
 

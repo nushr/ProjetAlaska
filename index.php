@@ -33,14 +33,27 @@ try {
                 }
                 else
                 {
-                    echo 'Erreur : tous les champs ne sont pas remplis';
+                    throw new Exception('Erreur : tous les champs ne sont pas remplis');
                 }
             }
-            else {
-                echo 'Erreur : pas de chapitre correspondant';
+            else
+            {
+                throw new Exception('Erreur : pas de chapitre correspondant');
+            }
+        }
+        elseif ($_GET['action'] == 'signalComment')
+        {
+            if (isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                signalComment($_GET['id']);
+            }
+            else
+            {
+                throw new Exception('Erreur : pas de commentaire correspondant');
             }
         }
     }
+    
     else {
         listPosts();
     }

@@ -100,6 +100,7 @@ h4 {
 
 #comment_signal {
     color:red;
+    font-weight:normal;
 }
 
 #comment_signal:hover {

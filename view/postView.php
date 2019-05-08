@@ -68,7 +68,7 @@
                     ?>
                     <div>
                         <p><i>" <?= $comment['contenu'] ?> "</i></p>
-                        <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?>. <span id="comment_signal">Signaler</span></p>
+                        <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?>. <a id="comment_signal" href="index.php?action=signalComment&id=<?= $comment['id'] ?>">Signaler</a></p>
                         <br>
                     </div>
                     <?php
