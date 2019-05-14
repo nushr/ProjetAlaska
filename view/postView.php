@@ -59,7 +59,7 @@
             <p><?= $post['contenu'] ?></p><br>
             <p><img src="public/assets/signature.png"></p>
             <br>
-            <h3 id="see_comments">Afficher les commentaires (<?= $nbComments ?>)</h3><br>
+            <h3 id="see_comments">Afficher les commentaires (<?= $nbComments['COUNT(ID)'] ?>)</h3><br>
             <div id="comments_block">
                 <?php
                 while ($comment = $comments->fetch())

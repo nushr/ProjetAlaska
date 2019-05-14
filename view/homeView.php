@@ -52,7 +52,7 @@
                 <p>
                     <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
                     <img id="signature" alt="signature" src="public/assets/signature.png">
-                    <p>0 commentaires</p>
+                    <p>x commentaires</p>
                 </p>
             </div>
         <?php

@@ -6,6 +6,7 @@ require_once('model/CommentManager.php');
 function listPosts()
 {
     $postManager = new PostManager(); // Création de l'instance
+
     $posts = $postManager->getPosts(); // Appel de la méthode
 
     require('view/homeView.php');

@@ -47,9 +47,11 @@ class CommentManager extends Manager
 
         $db = $this->dBConnect();
 
-        $nbComments = $db->prepare('SELECT COUNT(id) FROM commentaires WHERE post_id = ?');
+        $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE post_id = ?');
         $nbComments->execute(array($postId));
-
+        
+        $result = $nbComments->fetch(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
 
