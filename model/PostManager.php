@@ -6,11 +6,17 @@ class PostManager extends Manager
 {
 
     public function getPosts()
-    {
+    { // with limit (5 per page)
 
         $db = $this->dbConnect();
 
-        $req = $db->query('SELECT date_creation,titre,contenu,auteur,id FROM articles ORDER BY id DESC');
+        $nb = 5;
+
+        $req = $db->prepare('SELECT date_creation,titre,contenu,auteur,id FROM articles ORDER BY id DESC LIMIT :nb');
+
+        $req->bindValue('nb', $nb, PDO::PARAM_INT);
+
+        $req->execute();
 
         return $req;
 

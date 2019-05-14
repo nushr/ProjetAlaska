@@ -71,6 +71,13 @@ h4 {
     padding-left:10px;
 }
 
+#bloc_pagination {
+    width:90%;
+    margin:0 auto 40px;
+    display:flex;
+    justify-content: space-between;
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * */
 /* S * I * N * G * L * E * * * P * O * S * T * S */

@@ -53,7 +53,7 @@ try {
             }
         }
     }
-    
+
     else {
         listPosts();
     }

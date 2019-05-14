@@ -62,6 +62,11 @@
 
         ?>
 
+        <div id="bloc_pagination">
+            <a href="#"=>Chapitres suivants</a>
+            <a href="#">Chapitres précédents</a>
+        </div>
+
     </body>
 
 </html>

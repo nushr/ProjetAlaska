@@ -36,7 +36,7 @@ function addComment($postId, $author, $message)
     }
     else
     {
-        header('Location : index.php?action=post&id=' . $postId);
+        header("Location: index.php?action=post&id=$postId");
     }
 }
 
@@ -47,8 +47,12 @@ function signalComment($commentId)
 
     $signal = $commentManager->signalComment($commentId);
 
-    header('Location : index.php');
-    
-}
+    if ($checker === false)
+    {
+        throw new Exception('Error in signalling comment, sorry');
+    }
+    else {
+        header("Location: index.php");
+    }
 
-// No closing tag on purpose
+}

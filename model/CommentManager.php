@@ -22,8 +22,10 @@ class CommentManager extends Manager
 
         $db = $this->dbConnect();
 
-        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu, ) VALUES ?, ?, ?, ?');
-        $affectedLines = $comment->execute(array($postId, $author, CURRENT_DATE(), $message));
+        $dateCrea = date('Y-m-d');
+
+        $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu) VALUES (?, ?, ?, ?)');
+        $affectedLines = $comment->execute(array($postId, $author, $dateCrea, $message));
 
         return $affectedLines;
     }
@@ -33,9 +35,10 @@ class CommentManager extends Manager
 
         $db = $this->dbConnect();
 
-        $signal = $db->exec('UPDATE commentaires SET signale = 1 WHERE id = ?');
+        $signal = $db->prepare('UPDATE commentaires SET signale = 1 WHERE id = ?');
+        $checker = $signal->execute(array($commentId));
 
-        return $signal;
+        return $checker;
     }
 
 
@@ -44,9 +47,9 @@ class CommentManager extends Manager
 
         $db = $this->dBConnect();
 
-        $nbComments = $db->query('SELECT COUNT(id) FROM commentaires WHERE post_id = ?');
+        $nbComments = $db->prepare('SELECT COUNT(id) FROM commentaires WHERE post_id = ?');
+        $nbComments->execute(array($postId));
 
-        return $nbComments;
     }
 
 
