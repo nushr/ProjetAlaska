@@ -61,7 +61,20 @@
             <p><?= $post['contenu'] ?></p><br>
             <p><img alt="signature" src="public/assets/signature.png"></p>
             <br>
-            <h3 id="see_comments">Afficher les commentaires (<?= $nbComments['COUNT(ID)'] ?>)</h3><br>
+            <?php
+            if ($nbComments['COUNT(ID)'] == 1)
+            { ?>
+                <h3 id="see_comments">Afficher le commentaire</h3><br>
+            <?php }
+            elseif ($nbComments['COUNT(ID)'] == 0)
+            { ?>
+                <h3 id="see_comments" class="no_comments">Pas de commentaires</h3><br>
+            <?php }
+            elseif ($nbComments['COUNT(ID)'] > 1)
+            { ?>
+                <h3 id="see_comments">Afficher les commentaires (<?= $nbComments['COUNT(ID)'] ?>)</h3><br>
+            <?php }
+            ?>
             <div id="comments_block">
                 <?php
                 while ($comment = $comments->fetch())
@@ -77,7 +90,18 @@
                 }
                 ?>
             </div>
-            <h3 id="add_comment">Ajouter un commentaire</h3><br>
+
+            <?php
+            if ($nbComments['COUNT(ID)'] == 0)
+            { ?>
+                <h3 id="add_comment">Ajouter le premier commentaire</h3><br>
+            <?php }
+            else
+            { ?>
+                <h3 id="add_comment">Ajouter un commentaire</h3><br>
+            <?php }
+            ?>
+
             <div id="add_comment_block">
                 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     <div>

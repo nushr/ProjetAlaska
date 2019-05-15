@@ -76,13 +76,27 @@
                 $date_creation_fr = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
                 ?>
                 <div id="post_extract">
-                    <h4><?= $data['titre'] ?></h4>
-                    <p><?= substr($data['contenu'],0,600) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir plus</a></p>
+                    <h4><a class="plain_link" href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= $data['titre'] ?></a></h4>
+                    <p><?= substr($data['contenu'],0,700) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a></p>
                     <p>
                         <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
                         <img id="signature" alt="signature" src="public/assets/signature.png">
-                        <?php $nbComments = commentsNb($data['id']) ?>
-                        <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments"><?= $nbComments['COUNT(ID)'] ?> commentaires</a></p>
+                        <?php // Pour affichage "pas de commentaires" ou "1 commentaire" ou "x commentaires"
+                            $nbComments = commentsNb($data['id']);
+                            if ($nbComments['COUNT(ID)'] == 0)
+                            { ?>
+                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments">Pas de commentaires</a></p>
+                            <?php }
+                            elseif ($nbComments['COUNT(ID)'] == 1)
+                            { ?>
+                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments">1 commentaire</a></p>
+                            <?php }
+                            else
+                            { ?>
+                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments"><?= $nbComments['COUNT(ID)'] ?> commentaires</a></p>
+                            <?php }
+
+                        ?>
                     </p>
                 </div>
                 <?php

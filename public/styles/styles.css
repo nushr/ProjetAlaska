@@ -15,6 +15,11 @@ a {
     font-weight:bold;
 }
 
+.plain_link {
+    text-decoration:none;
+    color:black;
+}
+
 
 /* * * * * * * * * * * * */
 /* H * E * A * D * E * R */
@@ -104,7 +109,6 @@ h4 {
     margin-top: 30px;
 }
 
-
 #home_widgets h1, #last_posts h1 {
     color:#c5b39b;
     font-family: 'Homemade Apple', cursive;
@@ -128,6 +132,10 @@ h4 {
     width:90%;
     margin:50px auto;
     text-align:justify;
+}
+
+.no_comments {
+    display:none;
 }
 
 #see_comments, #add_comment {
