@@ -23,6 +23,8 @@
             <h1>Billet simple pour l'Alaska</h1>
         </header>
 
+        <div id="else_visuel"><a href="index.php"><img src="public/assets/view.png" alt="visuel"></a></div>
+
         <menu>
             <hr>
             <div>
