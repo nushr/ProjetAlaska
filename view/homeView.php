@@ -56,7 +56,7 @@
                 <p>Denise Forteroche, Revue des Livres (Mai 2019) <a href="#">Lien vers l'archive</a></p>
             </div>
             <div id="bonus">
-                <h1>Goodies</h1>
+                <h1>Bonus : spécial goodies</h1>
                 <a href="index.php?action=page&amp;name=ours"><p>Photographie d'un ours (exclusif !) -></p></a>
             </div>
         </div>

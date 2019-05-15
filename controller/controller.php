@@ -13,6 +13,17 @@ function listPosts()
     require('view/homeView.php');
 }
 
+function chaptersList()
+{
+
+    $postManager = new PostManager();
+
+    $posts = $postManager->listChapters();
+
+    require('view/chapters.php');
+
+}
+
 function post()
 {
 

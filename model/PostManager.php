@@ -31,7 +31,18 @@ class PostManager extends Manager
         $post = $req->fetch();
 
         return $post;
+    }
 
+    public function listChapters()
+    {
+
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT titre,id FROM articles');
+
+        $req->execute();
+
+        return $req;
     }
 
 }

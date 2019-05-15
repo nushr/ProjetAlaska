@@ -104,8 +104,11 @@ h4 {
     margin-top: 30px;
 }
 
+
 #home_widgets h1, #last_posts h1 {
     color:#c5b39b;
+    font-family: 'Homemade Apple', cursive;
+    font-size:1.7em;
 }
 
 #home_widgets > div {

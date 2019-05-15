@@ -54,7 +54,13 @@ try {
         }
         elseif ($_GET['action'] == 'page')
         {
-            elseView($_GET['name']);
+            if ($_GET['name'] == 'chapters')
+            {
+                chaptersList();
+            }
+            else {
+                elseView($_GET['name']);
+            }
         }
     }
 
