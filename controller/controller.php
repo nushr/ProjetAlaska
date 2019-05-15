@@ -101,6 +101,7 @@ function signalComment($commentId)
         throw new Exception('Error in signalling comment, sorry');
     }
     else {
-        header("Location: index.php");
+        $initPost = $_GET['init_post'];
+        header("Location: index.php?action=post&id=$initPost");
     }
 }
