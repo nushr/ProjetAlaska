@@ -30,6 +30,9 @@
             <hr>
             <div>
                 <?php
+
+                $nbPosts = postsNb();
+
                 if ($post['id']>1)
                 {
                     ?><p><a href="index.php?action=post&amp;id=<?= $post['id']-1 ?>">Chapitre précédent</a></p><?php
@@ -40,7 +43,7 @@
                 ?>
                 <p><a href="index.php">Retour à l'accueil</a></p>
                 <?php
-                if ($post['id']<6)
+                if ($post['id']<$nbPosts['COUNT(ID)'])
                 {
                     ?><p><a href="index.php?action=post&amp;id=<?= $post['id']+1 ?>">Chapitre suivant</a></p><?php
                 }

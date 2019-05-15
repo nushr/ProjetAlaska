@@ -21,8 +21,17 @@ function commentsNb($postId)
     $nbComments = $commentManager->countComments($postId);
 
     return $nbComments;
-
 }
+
+function postsNb()
+{
+    $postManager = new PostManager();
+
+    $nbPosts = $postManager->countPosts();
+
+    return $nbPosts;
+}
+
 
 function chaptersList()
 {

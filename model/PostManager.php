@@ -45,6 +45,20 @@ class PostManager extends Manager
         return $req;
     }
 
+    public function countPosts()
+    {
+
+        $db = $this->dbConnect();
+
+        $nbPosts = $db->prepare('SELECT COUNT(ID) FROM articles');
+        $nbPosts->execute();
+
+        $result = $nbPosts->fetch(\PDO::FETCH_ASSOC);
+        return $result;
+
+    }
+
+
 }
 
 
