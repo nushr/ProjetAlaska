@@ -10,7 +10,7 @@ class CommentManager extends Manager
 
         $db = $this->dbConnect();
 
-        $comments = $db->prepare('SELECT id,post_id,auteur,date_creation,contenu FROM commentaires WHERE post_id = ? ORDER BY id ASC');
+        $comments = $db->prepare('SELECT id,post_id,auteur,date_creation,contenu,signale FROM commentaires WHERE post_id = ? ORDER BY id ASC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -21,7 +21,7 @@ class CommentManager extends Manager
 
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT auteur,date_creation,contenu FROM commentaires ORDER BY id DESC LIMIT 1');
+        $req = $db->prepare('SELECT auteur,date_creation,contenu FROM commentaires WHERE signale = 0 ORDER BY id DESC LIMIT 1');
         $req->execute();
 
         $lastComment = $req->fetch();

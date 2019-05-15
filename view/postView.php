@@ -82,8 +82,17 @@
                     $date_creation_fr = DateTime::createFromFormat('Y-m-d', $comment['date_creation']);
                     ?>
                     <div>
-                        <p><i>" <?= $comment['contenu'] ?> "</i></p>
-                        <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?>. <a id="comment_signal" href="index.php?action=signalComment&id=<?= $comment['id'] ?>&init_post=<?= $comment['post_id'] ?>">Signaler</a></p>
+                        <?php
+                        if ($comment['signale'])
+                        { ?>
+                            <p class="signal_warning">Ce commentaire a été signalé comme inapproprié.<br>Il a été masqué en attendant sa modération</p>
+                            <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?>.</p>
+                        <?php }
+                        else
+                        { ?>
+                            <p><i>" <?= $comment['contenu'] ?> "</i></p>
+                            <p>Publié par <b><?= $comment['auteur'] ?></b> le <?= $date_creation_fr->format('d/m/Y') ?>. <a id="comment_signal" href="index.php?action=signalComment&id=<?= $comment['id'] ?>&init_post=<?= $comment['post_id'] ?>">Signaler</a></p>
+                        <?php } ?>
                         <br>
                     </div>
                     <?php
