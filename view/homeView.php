@@ -43,8 +43,11 @@
 
         <div id="home_widgets">
             <div id="last_comment">
+                <?php $lastComment = lastComment() ?>
                 <h1>Dernier commentaire publié</h1>
-                <p>Blablabla</p>
+                <p>"<?= $lastComment['contenu'] ?>"</p>
+                <?php $last_comment_date_fr = DateTime::createFromFormat('Y-m-d', $lastComment['date_creation']);?>
+                <p>Publié par <b><?= $lastComment['auteur'] ?></b>, le <?= $last_comment_date_fr->format('d/m/Y') ?></p>
             </div>
             <div id="about_author">
                 <h1>Aperçu de l'auteur</h1>
@@ -56,7 +59,7 @@
                 <p>Denise Forteroche, Revue des Livres (Mai 2019) <a href="#">Lien vers l'archive</a></p>
             </div>
             <div id="bonus">
-                <h1>Bonus : spécial goodies</h1>
+                <h1>Le coin des goodies</h1>
                 <a href="index.php?action=page&amp;name=ours"><p>Photographie d'un ours (exclusif !) -></p></a>
             </div>
         </div>

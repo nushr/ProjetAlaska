@@ -32,6 +32,15 @@ function postsNb()
     return $nbPosts;
 }
 
+function lastComment()
+{
+    $commentManager = new CommentManager();
+
+    $lastComment = $commentManager->getLastComment();
+
+    return $lastComment;
+}
+
 
 function chaptersList()
 {

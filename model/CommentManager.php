@@ -16,6 +16,19 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    public function getLastComment()
+    {
+
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT auteur,date_creation,contenu FROM commentaires ORDER BY id DESC LIMIT 1');
+        $req->execute();
+
+        $lastComment = $req->fetch();
+
+        return $lastComment;
+    }
+
 
     public function postComment($postId, $author, $message)
     {
@@ -49,7 +62,7 @@ class CommentManager extends Manager
 
         $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE post_id = ?');
         $nbComments->execute(array($postId));
-        
+
         $result = $nbComments->fetch(\PDO::FETCH_ASSOC);
         return $result;
     }
