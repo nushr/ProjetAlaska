@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
 
-        <title><?= $title ?></title>
+        <title>Billet simple pour l'Alaska : <?= $title ?></title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 

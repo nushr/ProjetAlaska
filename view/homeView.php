@@ -40,9 +40,30 @@
             <hr>
         </menu>
 
+
+        <div id="home_widgets">
+            <div id="last_comment">
+                <h1>Dernier commentaire publié</h1>
+                <p>Blablabla</p>
+            </div>
+            <div id="about_author">
+                <h1>Aperçu de l'auteur</h1>
+                <p>Blablabla</p>
+            </div>
+            <div id="press_comments">
+                <h1>La presse en parle</h1>
+                <p>Blablabla</p>
+            </div>
+            <div id="bonus">
+                <h1>Goodies</h1>
+                <p>Blablabla</p>
+            </div>
+        </div>
+
+
         <div id="last_posts">
 
-        <h1>Derniers chapitres publiés</h1>
+            <h1>Aperçu des 3 derniers chapitres publiés</h1>
 
             <?php
 

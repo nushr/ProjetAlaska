@@ -67,9 +67,26 @@ h4 {
 /* P * O * S * T * S * * * L * I * S * T */
 /* * * * * * * * * * * * * * * * * * * * */
 
+#home_widgets {
+    width:90%;
+    margin:50px auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#home_widgets > div {
+    margin-bottom:20px;
+    width:50%;
+}
+
+#last_comment, #about_author {
+    width:50%;
+    /*padding: 10px;*/
+}
+
 #last_posts {
     width:90%;
-    margin: 50px auto;
+    margin: 40px auto;
     text-align:justify;
 }
 
@@ -80,6 +97,10 @@ h4 {
 
 #post_extract {
     margin-top: 30px;
+}
+
+#home_widgets h1, #last_posts h1 {
+    color:#c5b39b;
 }
 
 
