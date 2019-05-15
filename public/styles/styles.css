@@ -71,11 +71,8 @@ h4 {
     padding-left:10px;
 }
 
-#bloc_pagination {
-    width:90%;
-    margin:0 auto 40px;
-    display:flex;
-    justify-content: space-between;
+#post_extract {
+    margin-top: 30px;
 }
 
 
@@ -112,4 +109,14 @@ h4 {
 
 #comment_signal:hover {
     cursor:pointer;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * */
+/* M * I * S * C * * * P * A * G * E * S */
+/* * * * * * * * * * * * * * * * * * * * */
+
+#page_content {
+    width:90%;
+    margin: 30px auto;
 }

@@ -5,6 +5,7 @@ require_once('model/CommentManager.php');
 
 function listPosts()
 {
+
     $postManager = new PostManager(); // Création de l'instance
 
     $posts = $postManager->getPosts(); // Appel de la méthode
@@ -14,6 +15,7 @@ function listPosts()
 
 function post()
 {
+
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
@@ -22,6 +24,12 @@ function post()
     $nbComments = $commentManager->countComments($_GET['id']);
 
     require('view/postView.php');
+}
+
+function elseView($page)
+{
+
+    require("view/$page.php");
 }
 
 function addComment($postId, $author, $message)
@@ -55,5 +63,4 @@ function signalComment($commentId)
     else {
         header("Location: index.php");
     }
-
 }

@@ -52,6 +52,10 @@ try {
                 throw new Exception('Erreur : pas de commentaire correspondant');
             }
         }
+        elseif ($_GET['action'] == 'page')
+        {
+            elseView($_GET['name']);
+        }
     }
 
     else {

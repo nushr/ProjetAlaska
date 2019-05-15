@@ -32,39 +32,40 @@
         <menu>
             <hr>
             <div>
-                <p><a href="#">A propos de l'auteur</a></p>
-                <p><a href="#">Le roman</a></p>
-                <p><a href="#">Liste des chapitres publiés</a></p>
-                <p><a href="#">Contact</a></p>
+                <p><a href="index.php?action=page&amp;name=author">A propos de l'auteur</a></p>
+                <p><a href="index.php?action=page&amp;name=novel">Le roman</a></p>
+                <p><a href="index.php?action=page&amp;name=chapters">Liste des chapitres publiés</a></p>
+                <p><a href="index.php?action=page&amp;name=contact">Contact</a></p>
             </div>
             <hr>
         </menu>
 
-        <?php
+        <div id="last_posts">
 
-        while ($data = $posts->fetch())
-        {
-            $date_creation_fr = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
+        <h1>Derniers chapitres publiés</h1>
+
+            <?php
+
+            while ($data = $posts->fetch())
+            {
+                $date_creation_fr = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
+                ?>
+                <div id="post_extract">
+                    <h4><?= $data['titre'] ?></h4>
+                    <p><?= substr($data['contenu'],0,700) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir plus</a></p>
+                    <p>
+                        <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
+                        <img id="signature" alt="signature" src="public/assets/signature.png">
+                        <p>x commentaires</p>
+                    </p>
+                </div>
+                <?php
+            }
+
+            $posts->closeCursor();
+
             ?>
-            <div id="last_posts">
-                <h4><?= $data['titre'] ?></h4>
-                <p><?= substr($data['contenu'],0,700) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir plus</a></p>
-                <p>
-                    <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
-                    <img id="signature" alt="signature" src="public/assets/signature.png">
-                    <p>x commentaires</p>
-                </p>
-            </div>
-        <?php
-        }
 
-        $posts->closeCursor();
-
-        ?>
-
-        <div id="bloc_pagination">
-            <a href="#"=>Chapitres suivants</a>
-            <a href="#">Chapitres précédents</a>
         </div>
 
     </body>
