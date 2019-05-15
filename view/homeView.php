@@ -74,11 +74,12 @@
                 ?>
                 <div id="post_extract">
                     <h4><?= $data['titre'] ?></h4>
-                    <p><?= substr($data['contenu'],0,700) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir plus</a></p>
+                    <p><?= substr($data['contenu'],0,600) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir plus</a></p>
                     <p>
                         <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
                         <img id="signature" alt="signature" src="public/assets/signature.png">
-                        <p>x commentaires</p>
+                        <?php $nbComments = commentsNb($data['id']) ?>
+                        <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments"><?= $nbComments['COUNT(ID)'] ?> commentaires</a></p>
                     </p>
                 </div>
                 <?php

@@ -14,7 +14,6 @@ showComments.addEventListener('click', function() {
     }
 })
 
-
 // Show/hide add comment form toggle
 
 var showAddForm = document.getElementById('add_comment');

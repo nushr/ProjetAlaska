@@ -13,6 +13,17 @@ function listPosts()
     require('view/homeView.php');
 }
 
+function commentsNb($postId)
+{
+
+    $commentManager = new CommentManager();
+
+    $nbComments = $commentManager->countComments($postId);
+
+    return $nbComments;
+
+}
+
 function chaptersList()
 {
 
