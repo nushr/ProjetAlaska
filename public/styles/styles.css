@@ -46,6 +46,11 @@ menu div {
     justify-content: space-between;
 }
 
+menu a:hover {
+    position:relative;
+    top:-5px;
+}
+
 menu hr {
     height:3px;
     background-color:black;
@@ -103,6 +108,10 @@ h4 {
     color:#c5b39b;
 }
 
+#home_widgets > div {
+    padding : 0 20px;
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * */
 /* S * I * N * G * L * E * * * P * O * S * T * S */
@@ -146,5 +155,14 @@ h4 {
 
 #page_content {
     width:90%;
-    margin: 30px auto;
+    margin:30px auto;
+}
+
+#bear_pic {
+    width:100%;
+}
+
+#author_pic {
+    width:20%;
+    float:right;
 }

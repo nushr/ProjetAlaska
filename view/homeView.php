@@ -48,15 +48,16 @@
             </div>
             <div id="about_author">
                 <h1>Aperçu de l'auteur</h1>
-                <p>Blablabla</p>
+                <p>Jean est né un jour, puis il a grandi.</p><p>Depuis, il est devenu écrivain</p><p>N'est-ce pas merveilleux ?<a href="index.php?action=page&amp;name=author"> Accéder à la biographie de l'auteur</a></p>
             </div>
             <div id="press_comments">
                 <h1>La presse en parle</h1>
-                <p>Blablabla</p>
+                <p>"Au vu du nouveau projet de Jean Forteroche, le critique peut enfin penser : "Voici un projet engagé, qui saura remettre les pendules à l'heure." Et ainsi de se dire : merci, Jean Forteroche"</p>
+                <p>Denise Forteroche, Revue des Livres (Mai 2019) <a href="#">Lien vers l'archive</a></p>
             </div>
             <div id="bonus">
                 <h1>Goodies</h1>
-                <p>Blablabla</p>
+                <a href="index.php?action=page&amp;name=ours"><p>Photographie d'un ours (exclusif !) -></p></a>
             </div>
         </div>
 

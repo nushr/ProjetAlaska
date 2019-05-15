@@ -56,7 +56,7 @@
         <div id="single_post">
             <h3><?= $post['titre'] ?></h3><br>
             <p><?= $post['contenu'] ?></p><br>
-            <p><img src="public/assets/signature.png"></p>
+            <p><img alt="signature" src="public/assets/signature.png"></p>
             <br>
             <h3 id="see_comments">Afficher les commentaires (<?= $nbComments['COUNT(ID)'] ?>)</h3><br>
             <div id="comments_block">
