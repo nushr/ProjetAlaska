@@ -62,15 +62,11 @@
             <p><img alt="signature" src="public/assets/signature.png"></p>
             <br>
             <?php
-            if ($nbComments['COUNT(ID)'] == 1)
-            { ?>
-                <h3 id="see_comments">Afficher le commentaire</h3><br>
-            <?php }
-            elseif ($nbComments['COUNT(ID)'] == 0)
+            if ($nbComments['COUNT(ID)'] == 0)
             { ?>
                 <h3 id="see_comments" class="no_comments">Pas de commentaires</h3><br>
             <?php }
-            elseif ($nbComments['COUNT(ID)'] > 1)
+            else
             { ?>
                 <h3 id="see_comments">Afficher les commentaires (<?= $nbComments['COUNT(ID)'] ?>)</h3><br>
             <?php }

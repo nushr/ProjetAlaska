@@ -181,3 +181,34 @@ h4 {
     width:20%;
     float:right;
 }
+
+
+
+
+/*****/
+footer {
+    width:90%;
+    margin:auto;
+    text-align:center;
+}
+
+footer hr {
+    height:3px;
+    background-color:black;
+}
+
+footer div {
+    padding:15px 0;
+    display:flex;
+    justify-content: space-around;
+}
+
+footer p a, footer p {
+    color:#c5b39b;
+    text-decoration:none;
+    font-weight:normal;
+}
+
+footer p a:hover {
+    color:#586F99;
+}
