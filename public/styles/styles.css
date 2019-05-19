@@ -94,6 +94,11 @@ h4 {
     /*padding: 10px;*/
 }
 
+#press_review {
+    padding-left:10px;
+    border-left:1px #c5b39b solid;
+}
+
 #last_posts {
     width:90%;
     margin: 40px auto;
@@ -163,6 +168,13 @@ h4 {
     color:red;
 }
 
+#add_comment_block input, #add_comment_block textarea {
+    padding:6px;
+}
+
+#add_comment_block * {
+    margin : 2px 0;
+}
 
 /* * * * * * * * * * * * * * * * * * * * */
 /* M * I * S * C * * * P * A * G * E * S */

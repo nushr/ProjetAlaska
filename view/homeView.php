@@ -55,8 +55,8 @@
             </div>
             <div id="press_comments">
                 <h1>La presse en parle</h1>
-                <p>"Au vu du nouveau projet de Jean Forteroche, le critique peut enfin penser : "Voici un projet engagé, qui saura remettre les pendules à l'heure." Et ainsi de se dire : merci, Jean Forteroche"</p>
-                <p>Denise Forteroche, Revue des Livres (Mai 2019) <a href="#">Lien vers l'archive</a></p>
+                <p id="press_review">Au vu du nouveau projet de Jean Forteroche, le critique peut enfin penser : "Voici un projet engagé, qui saura remettre les pendules à l'heure." Et ainsi de se dire : merci, Jean Forteroche</p>
+                <p>Alain Forteroche, la France des Livres (Mai 2019) <a href="#">Lien vers l'archive</a></p>
             </div>
             <div id="bonus">
                 <h1>Le coin des goodies</h1>

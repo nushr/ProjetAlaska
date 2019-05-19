@@ -110,11 +110,11 @@
             <div id="add_comment_block">
                 <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     <div>
-                        <label for="author">Pseudo</label><br>
+                        <label for="author">Pseudo :</label><br>
                         <input type="text" id="author" name="author">
                     </div>
                     <div>
-                        <label for="message">Commentaire</label><br>
+                        <label for="message">Commentaire :</label><br>
                         <textarea id="message" name="message"></textarea>
                     </div>
                     <div>
