@@ -61,6 +61,10 @@ try {
         {
             backConnexion($_POST['id'], $_POST['pwd']);
         }
+        elseif ($_GET['action'] == 'backHome')
+        {
+            setAdminHome();
+        }
     }
 
     else {

@@ -8,12 +8,20 @@ function backConnexion($id, $pwd) {
 
     $dbPwd = $backManager->checkId($id);
 
-    if ($dbPwd[0] == $pwd)
+    if ($dbPwd[0] == hash('md5', $pwd))
     {
-        require('view/back/backHome.php');
+        session_start();
+        $_SESSION['logged'] = true;
+        header("Location: index.php?action=backHome");
     }
     else {
         echo("FAUX");
     }
 
+}
+
+function setAdminHome()
+{
+
+    require('view/back/backHome.php');
 }
