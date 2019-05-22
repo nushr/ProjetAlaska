@@ -23,14 +23,13 @@
 
         <header>
             <h1>Billet simple pour l'Alaska</h1>
+            <h3>Espace administration</h3>
         </header>
-
-        <div id="else_visuel"><a href="index.php?action=adminLog&name=index"><img src="public/assets/view.png" alt="visuel"></a></div>
-
 
         <menu>
             <hr>
             <div>
+                <p><a href="index.php?action=adminLog&name=index">Accueil</a></p>
                 <p><a href="index.php?action=adminLog&name=addchapter">Ecrire un nouveau chapitre</a></p>
                 <p><a href="index.php?action=adminLog&name=comments">Modérer les commentaires</a></p>
                 <p><a href="index.php?action=adminLog&name=chapters">Voir les chapitres publiés</a></p>

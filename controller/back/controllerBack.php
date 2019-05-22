@@ -37,6 +37,12 @@ function setAdminHome($page)
         session_destroy();
         header('Location:index.php');
     }
+    elseif ($page == "chapters")
+    {
+        $backManager = new BackManager();
+
+        $chapters = $backManager->listChapters();
+    }
 
     else
     {
@@ -45,8 +51,5 @@ function setAdminHome($page)
         $page = $backManager->displayBackPage($page);
 
     }
-
-
-
 
 }

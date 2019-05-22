@@ -19,6 +19,36 @@ class BackManager extends Manager
 
     }
 
+    public function listChapters()
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT titre,id FROM articles');
+
+        $req->execute();
+
+        ob_start(); ?>
+
+        <h1>Liste des chapitres publiés</h1><br>
+
+        <?php
+
+        while ($data = $req->fetch())
+        {
+            ?>
+            <p><a href="#"><?= $data['titre'] ?></a><a href="#" class="changeLink">Retoucher</a><a href="#" class="deleteLink">Supprimer</a></p>
+
+            <?php
+        }
+
+        $req->closeCursor();
+        ?>
+
+        <?php $admin_content = ob_get_clean();
+
+        require('view/back/adminView.php');
+    }
+
     public function displayBackPage($page)
     {
 
@@ -48,13 +78,6 @@ class BackManager extends Manager
             <?php $admin_content = ob_get_clean();
         }
 
-        elseif ($page == "chapters") {
-            ob_start(); ?>
-
-            <h1>Liste des chapitres publiés</h1><br>
-            <div>Voici les chapitres publiés</div>
-            <?php $admin_content = ob_get_clean();
-        }
 
         else {
             $admin_content = "Pas encore écrit";

@@ -242,3 +242,15 @@ footer p a:hover {
     list-style-type: none;
     padding-left:30px;
 }
+
+.changeLink {
+    color:orange;
+}
+
+.deleteLink {
+    color:red;
+}
+
+.changeLink, .deleteLink {
+    margin-left:15px;
+}
