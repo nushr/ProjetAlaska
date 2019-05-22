@@ -1,6 +1,7 @@
 <?php
 
 require('controller/front/controller.php');
+require('controller/back/controllerBack.php');
 
 
 try {
@@ -55,6 +56,10 @@ try {
         elseif ($_GET['action'] == 'page')
         {
             elseView($_GET['name']);
+        }
+        elseif ($_GET['action'] == 'connexion') // controllerBack
+        {
+            backConnexion($_POST['id'], $_POST['pwd']);
         }
     }
 

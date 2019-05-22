@@ -125,11 +125,11 @@ class PageManager
             <h1>Connexion à l'espace d'administration</h1>
             <br>
 
-            <form method="post" action="view/back/connexion.php">
+            <form method="post" action="index.php?action=connexion">
                 <label for="id">Adresse de messagerie :</label><br>
-                <input type="text" name="id" id="id"><br>
+                <input type="text" name="id" id="id" required><br>
                 <label for="pwd">Mot de passe :</label><br>
-                <input type="text" name="pwd" id="pwd"><br>
+                <input type="password" name="pwd" id="pwd" required><br>
                 <input type="submit" value="Soumettre">
             </form>
 
