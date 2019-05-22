@@ -227,3 +227,18 @@ footer p a, footer p {
 footer p a:hover {
     color:#586F99;
 }
+
+
+/* * * * * * * * * * * * * * * * */
+/* B * A * C * K * * * E * N * D */
+/* * * * * * * * * * * * * * * * */
+
+#admin_content {
+    width:90%;
+    margin:30px auto;
+}
+
+#admin_content ul {
+    list-style-type: none;
+    padding-left:30px;
+}

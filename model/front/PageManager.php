@@ -129,7 +129,7 @@ class PageManager
                 <label for="id">Adresse de messagerie :</label><br>
                 <input type="text" name="id" id="id" required><br>
                 <label for="pwd">Mot de passe :</label><br>
-                <input type="password" name="pwd" id="pwd" required><br>
+                <input type="password" name="pwd" id="pwd" required><br><br>
                 <input type="submit" value="Soumettre">
             </form>
 

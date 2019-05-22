@@ -61,9 +61,9 @@ try {
         {
             backConnexion($_POST['id'], $_POST['pwd']);
         }
-        elseif ($_GET['action'] == 'backHome')
+        elseif ($_GET['action'] == 'adminLog')
         {
-            setAdminHome();
+            setAdminHome($_GET['name']);
         }
     }
 

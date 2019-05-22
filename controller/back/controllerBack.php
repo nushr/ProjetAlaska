@@ -12,7 +12,7 @@ function backConnexion($id, $pwd) {
     {
         session_start();
         $_SESSION['logged'] = true;
-        header("Location: index.php?action=backHome");
+        header("Location: index.php?action=adminLog&name=index");
     }
     else {
         echo("FAUX");
@@ -20,8 +20,33 @@ function backConnexion($id, $pwd) {
 
 }
 
-function setAdminHome()
+function setAdminHome($page)
 {
+    session_start();
 
-    require('view/back/backHome.php');
+    if (!isset($_SESSION['logged']))
+    { ?>
+        <div>Vous n'êtes pas identifié.</div>
+        <div>Merci de vous connecter <a href="index.php?action=page&amp;name=connexion">ici</a></div>
+        <?php
+    }
+
+    elseif ($page == "logout")
+    {
+        session_unset();
+        session_destroy();
+        header('Location:index.php');
+    }
+
+    else
+    {
+        $backManager = new BackManager();
+
+        $page = $backManager->displayBackPage($page);
+
+    }
+
+
+
+
 }
