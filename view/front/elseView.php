@@ -40,6 +40,15 @@
             <?= $content ?>
         </div>
 
+        <footer>
+            <hr>
+            <div>
+                <p><a href="index.php?action=page&amp;name=mentions">Mentions légales</a></p>
+                <p>&copy; Jean Forteroche 2019</p>
+                <p><a href="index.php?action=page&amp;name=connexion">Connexion</a></p>
+            </div>
+        </footer>
+
     </body>
 
 </html>

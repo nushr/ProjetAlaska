@@ -1,6 +1,6 @@
 <?php
 
-require('controller/controller.php');
+require('controller/front/controller.php');
 
 
 try {
@@ -54,13 +54,7 @@ try {
         }
         elseif ($_GET['action'] == 'page')
         {
-            if ($_GET['name'] == 'chapters')
-            {
-                chaptersList();
-            }
-            else {
-                elseView($_GET['name']);
-            }
+            elseView($_GET['name']);
         }
     }
 

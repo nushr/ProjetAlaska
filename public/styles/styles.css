@@ -65,17 +65,10 @@ h4 {
     font-size:1.2em;
 }
 
-#else_visuel {
-    text-align: center;
-}
 
-#else_visuel img {
-    width:90%;
-}
-
-/* * * * * * * * * * * * * * * * * * * * */
-/* P * O * S * T * S * * * L * I * S * T */
-/* * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * */
+/* H * O * M * E * * * V * I * E * W */
+/* * * * * * * * * * * * * * * * * * */
 
 #home_widgets {
     width:90%;
@@ -129,7 +122,7 @@ h4 {
 /* S * I * N * G * L * E * * * P * O * S * T * S */
 /* * * * * * * * * * * * * * * * * * * * * * * * */
 
-.nav_disabled {
+.nav_disabled { /* navigation when reading */
     visibility:hidden;
 }
 
@@ -176,9 +169,18 @@ h4 {
     margin : 2px 0;
 }
 
+
 /* * * * * * * * * * * * * * * * * * * * */
 /* M * I * S * C * * * P * A * G * E * S */
 /* * * * * * * * * * * * * * * * * * * * */
+
+#else_visuel {
+    text-align: center;
+}
+
+#else_visuel img {
+    width:90%;
+}
 
 #page_content {
     width:90%;
@@ -195,9 +197,10 @@ h4 {
 }
 
 
+/* * * * * * * * * * * * */
+/* F * O * O * T * E * R */
+/* * * * * * * * * * * * */
 
-
-/*****/
 footer {
     width:90%;
     margin:auto;

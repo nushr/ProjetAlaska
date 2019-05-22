@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
 
-        <title>Billet simple pour l'Alaska : un chapitre</title>
+        <title>Billet simple pour l'Alaska : mode lecture</title>
 
         <meta name="description" content="Un chapitre du nouveau roman de Jean Forteroche">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -123,6 +123,7 @@
                 </form>
             </div>
         </div>
+
 
         <script src="public/script/script.js"></script>
 

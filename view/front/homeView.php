@@ -60,7 +60,7 @@
             </div>
             <div id="bonus">
                 <h1>Le coin des goodies</h1>
-                <a href="index.php?action=page&amp;name=ours"><p>Photographie d'un ours (exclusif !) -></p></a>
+                <a href="index.php?action=page&amp;name=ours#bear_bloc"><p>Photographie d'un ours (exclusif !) -></p></a>
             </div>
         </div>
 
@@ -85,15 +85,15 @@
                             $nbComments = commentsNb($data['id']);
                             if ($nbComments['COUNT(ID)'] == 0)
                             { ?>
-                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments">Pas de commentaires</a></p>
+                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments" class="see_comments_link">Pas de commentaires</a></p>
                             <?php }
                             elseif ($nbComments['COUNT(ID)'] == 1)
                             { ?>
-                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments">1 commentaire</a></p>
+                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments" class="see_comments_link">1 commentaire</a></p>
                             <?php }
                             else
                             { ?>
-                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments"><?= $nbComments['COUNT(ID)'] ?> commentaires</a></p>
+                                <p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#see_comments" class="see_comments_link"><?= $nbComments['COUNT(ID)'] ?> commentaires</a></p>
                             <?php }
 
                         ?>
@@ -111,9 +111,9 @@
         <footer>
             <hr>
             <div>
-                <p><a href="#">Mentions légales</a></p>
+                <p><a href="index.php?action=page&amp;name=mentions">Mentions légales</a></p>
                 <p>&copy; Jean Forteroche 2019</p>
-                <p><a href="#">Connexion</a></p>
+                <p><a href="index.php?action=page&amp;name=connexion">Connexion</a></p>
             </div>
         </footer>
 
