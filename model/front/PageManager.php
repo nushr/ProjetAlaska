@@ -27,7 +27,6 @@ class PageManager
         <?php $content = ob_get_clean();
 
         require('view/front/elseView.php');
-
     }
 
     public function displayElsePage($page)
@@ -48,12 +47,10 @@ class PageManager
             <p><img alt="signature" src="public/assets/signature.png"></p>
 
             <?php $content = ob_get_clean();
-
-
         }
 
-        elseif ($page == "contact") {
-
+        elseif ($page == "contact")
+        {
             $title="Billet simple pour l'Alaska : contact" ?>
 
             <?php ob_start(); ?>
@@ -66,11 +63,10 @@ class PageManager
             <p><strong>Adresse postale</strong><br>4 chemin de la Masse Salariale<br>48980 Fortenouvelle</p>
 
             <?php $content = ob_get_clean();
-
         }
 
-        elseif ($page == "novel") {
-
+        elseif ($page == "novel")
+        {
             $title="Billet simple pour l'Alaska : le roman" ?>
 
             <?php ob_start(); ?>
@@ -88,8 +84,8 @@ class PageManager
             <?php $content = ob_get_clean();
         }
 
-        elseif ($page == "ours") {
-
+        elseif ($page == "ours")
+        {
             $title="Billet simple pour l'Alaska : photo exclusive"; ?>
 
             <?php ob_start(); ?>
@@ -97,11 +93,10 @@ class PageManager
             <div id="bear_bloc"><a href="index.php"><img id="bear_pic" alt="Ours polaire" src="public/assets/ours.jpg"></a></div>
 
             <?php $content = ob_get_clean();
-
         }
 
-        elseif ($page == "mentions") {
-
+        elseif ($page == "mentions")
+        {
             $title="Billet simple pour l'Alaska : mentions légales & crédits"; ?>
 
             <?php ob_start(); ?>
@@ -113,11 +108,10 @@ class PageManager
             <p><a href="index.php">Retour à l'accueil</a></p>
 
             <?php $content = ob_get_clean();
-
         }
 
-        elseif ($page == "connexion") {
-
+        elseif ($page == "connexion")
+        {
             $title="Billet simple pour l'Alaska : connexion"; ?>
 
             <?php ob_start(); ?>
@@ -136,10 +130,10 @@ class PageManager
             <br><a href="#">Mot de passe oublié ?</a>
 
             <?php $content = ob_get_clean();
-
         }
 
-        else {
+        else
+        {
             $title="Erreur !"; ?>
 
             <?php ob_start(); ?>
@@ -153,6 +147,5 @@ class PageManager
         require('view/front/elseView.php');
 
     }
-
 
 } ?>

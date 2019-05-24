@@ -7,7 +7,6 @@ class BackManager extends Manager
 
     public function checkId($id)
     {
-
         $db = $this->dbConnect();
 
         $req = $db->prepare('SELECT pwd FROM utilisateurs WHERE mail = ?');
@@ -16,7 +15,6 @@ class BackManager extends Manager
         $dbPwd = $req->fetch();
 
         return $dbPwd;
-
     }
 
     public function listChapters()
@@ -59,10 +57,10 @@ class BackManager extends Manager
             <h1>Bienvenue, Jean</h1><br>
             <div>Voulez-vous modifier vos informations personnelles, par hasard ?</div>
             <?php $admin_content = ob_get_clean();
-
         }
 
-        elseif ($page == "addchapter") {
+        elseif ($page == "addchapter")
+        {
             ob_start(); ?>
 
             <h1>Nouveau chapitre</h1><br>
@@ -70,7 +68,8 @@ class BackManager extends Manager
             <?php $admin_content = ob_get_clean();
         }
 
-        elseif ($page == "comments") {
+        elseif ($page == "comments")
+        {
             ob_start(); ?>
 
             <h1>Modération des commentaires</h1><br>
@@ -79,8 +78,9 @@ class BackManager extends Manager
         }
 
 
-        else {
-            $admin_content = "Pas encore écrit";
+        else
+        {
+            $admin_content = "Cette page n'existe pas";
         }
 
         require('view/back/adminView.php');

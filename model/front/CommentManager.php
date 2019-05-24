@@ -7,7 +7,6 @@ class CommentManager extends Manager
 
     public function getComments($postId)
     {
-
         $db = $this->dbConnect();
 
         $comments = $db->prepare('SELECT id,post_id,auteur,date_creation,contenu,signale FROM commentaires WHERE post_id = ? ORDER BY id ASC');
@@ -16,9 +15,8 @@ class CommentManager extends Manager
         return $comments;
     }
 
-    public function getLastComment()
+    public function getLastComment() // for home page
     {
-
         $db = $this->dbConnect();
 
         $req = $db->prepare('SELECT auteur,date_creation,contenu FROM commentaires WHERE signale = 0 ORDER BY id DESC LIMIT 1');
@@ -32,7 +30,6 @@ class CommentManager extends Manager
 
     public function postComment($postId, $author, $message)
     {
-
         $db = $this->dbConnect();
 
         $dateCrea = date('Y-m-d');
@@ -45,7 +42,6 @@ class CommentManager extends Manager
 
     public function signalComment($commentId)
     {
-
         $db = $this->dbConnect();
 
         $signal = $db->prepare('UPDATE commentaires SET signale = 1 WHERE id = ?');
@@ -57,7 +53,6 @@ class CommentManager extends Manager
 
     public function countComments($postId)
     {
-
         $db = $this->dBConnect();
 
         $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE post_id = ?');
@@ -66,6 +61,5 @@ class CommentManager extends Manager
         $result = $nbComments->fetch(\PDO::FETCH_ASSOC);
         return $result;
     }
-
 
 }
