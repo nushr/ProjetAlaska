@@ -18,8 +18,6 @@
 
     </head>
 
-
-
     <body>
 
         <header>
@@ -30,7 +28,6 @@
             <hr>
             <div>
                 <?php
-
                 $nbPosts = postsNb();
 
                 if ($post['id']>1)
@@ -96,7 +93,7 @@
                 ?>
             </div>
 
-            <?php
+            <?php // check whether there are comments for accurate display
             if ($nbComments['COUNT(ID)'] == 0)
             { ?>
                 <h3 id="add_comment">Ajouter le premier commentaire</h3><br>
@@ -122,8 +119,8 @@
                     </div>
                 </form>
             </div>
-        </div>
 
+        </div>
 
         <script src="public/script/script.js"></script>
 

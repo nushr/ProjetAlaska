@@ -16,10 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
 
-
     </head>
-
-
 
     <body>
 
@@ -39,7 +36,6 @@
             </div>
             <hr>
         </menu>
-
 
         <div id="home_widgets">
             <div id="last_comment">
@@ -63,7 +59,6 @@
                 <a href="index.php?action=page&amp;name=ours#bear_bloc"><p>Photographie d'un ours (exclusif !) -></p></a>
             </div>
         </div>
-
 
         <div id="last_posts">
 
@@ -102,9 +97,7 @@
                 <?php
             }
 
-            $posts->closeCursor();
-
-            ?>
+            $posts->closeCursor();  ?>
 
         </div>
 

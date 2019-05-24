@@ -17,8 +17,6 @@
 
     </head>
 
-
-
     <body>
 
         <header>
@@ -41,7 +39,6 @@
         <div id="admin_content">
             <?= $admin_content ?>
         </div>
-
 
     </body>
 
