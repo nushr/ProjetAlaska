@@ -133,6 +133,7 @@ class PageManager
                 <input type="submit" value="Soumettre">
             </form>
 
+            <br><a href="#">Mot de passe oublié ?</a>
 
             <?php $content = ob_get_clean();
 

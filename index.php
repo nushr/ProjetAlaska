@@ -8,10 +8,12 @@ try {
 
     if (isset($_GET['action']))
     {
+
         if ($_GET['action'] == 'listPosts')
         {
             listPosts();
         }
+
         elseif ($_GET['action'] == 'post')
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
@@ -24,6 +26,7 @@ try {
                 throw new Exception('Mince ! Aucun chapitre ici !');
             }
         }
+
         elseif ($_GET['action'] == 'addComment')
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
@@ -42,6 +45,7 @@ try {
                 throw new Exception('Erreur : pas de chapitre correspondant');
             }
         }
+
         elseif ($_GET['action'] == 'signalComment')
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
@@ -50,29 +54,49 @@ try {
             }
             else
             {
-                throw new Exception('Erreur : pas de commentaire correspondant');
+                throw new Exception('Pas de commentaire correspondant');
             }
         }
-        elseif ($_GET['action'] == 'page')
+
+        elseif ($_GET['action'] == 'page') // other than home or post reading
         {
-            elseView($_GET['name']);
+            if (isset ($_GET['name']))
+            {
+                elseView($_GET['name']);
+            }
+            else {
+                throw new Exception('Pas de page correspondante');
+            }
         }
+
         elseif ($_GET['action'] == 'connexion') // controllerBack
         {
             backConnexion($_POST['id'], $_POST['pwd']);
         }
-        elseif ($_GET['action'] == 'adminLog')
+
+        elseif ($_GET['action'] == 'adminLog') // Admin pages
         {
-            setAdminHome($_GET['name']);
+            if (isset ($_GET['name']))
+            {
+                setAdminHome($_GET['name']);
+            }
+            else {
+                throw new Exception('Pas de page correspondante');
+            }
+
         }
     }
 
-    else {
+    else { // Si pas d'action précisée dans l'URL : revient à la page d'accueil avec liste des posts
         listPosts();
     }
 }
 
+// En cas de soucis avec ce qui est entré dans l'URL
 catch(Exception $e)
 {
-    echo 'Erreur : ' . $e->getMessage();
+    $title="Erreur direction";
+    $content="Erreur : " . $e->getMessage() . "<br>Cliquez pour <a href=\"index.php\">revenir à l'accueil</a>";
+
+    require('view/front/elseView.php');
 }

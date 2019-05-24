@@ -8,7 +8,6 @@ require_once('model/front/PageManager.php');
 // for homeView
 function listPosts()
 {
-
     $postManager = new PostManager(); // Création de l'instance
 
     $posts = $postManager->getPosts(); // Appel de la méthode
@@ -18,7 +17,6 @@ function listPosts()
 
 function commentsNb($postId)
 {
-
     $commentManager = new CommentManager();
 
     $nbComments = $commentManager->countComments($postId);
@@ -37,7 +35,6 @@ function lastComment()
 
 
 // for postView
-
 function postsNb()
 {
     $postManager = new PostManager();
@@ -47,9 +44,8 @@ function postsNb()
     return $nbPosts;
 }
 
-function post()
+function post() // pick & display
 {
-
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
@@ -62,7 +58,6 @@ function post()
 
 function signalComment($commentId)
 {
-
     $commentManager = new CommentManager();
 
     $signal = $commentManager->signalComment($commentId);
@@ -79,7 +74,6 @@ function signalComment($commentId)
 
 function addComment($postId, $author, $message)
 {
-
     $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->postComment($postId, $author, $message);
@@ -96,22 +90,18 @@ function addComment($postId, $author, $message)
 
 
 // for elseView
-
 function chaptersList()
 {
-
     $postManager = new PostManager();
 
     $posts = $postManager->listChapters();
 
     require('view/chapters.php');
-
 }
 
 
 function elseView($page)
 {
-
     if ($page == "chapters")
     {
         $postManager = new PostManager();

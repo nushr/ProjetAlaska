@@ -2,8 +2,8 @@
 
 require_once('model/back/BackManager.php');
 
-function backConnexion($id, $pwd) {
-
+function backConnexion($id, $pwd)
+{
     $backManager = new BackManager();
 
     $dbPwd = $backManager->checkId($id);
@@ -14,10 +14,10 @@ function backConnexion($id, $pwd) {
         $_SESSION['logged'] = true;
         header("Location: index.php?action=adminLog&name=index");
     }
-    else {
-        echo("FAUX");
-    }
 
+    else {
+        throw new Exception('Vos identifiants de session sont incorrects');
+    }
 }
 
 function setAdminHome($page)
@@ -37,6 +37,7 @@ function setAdminHome($page)
         session_destroy();
         header('Location:index.php');
     }
+
     elseif ($page == "chapters")
     {
         $backManager = new BackManager();
@@ -49,7 +50,6 @@ function setAdminHome($page)
         $backManager = new BackManager();
 
         $page = $backManager->displayBackPage($page);
-
     }
 
 }
