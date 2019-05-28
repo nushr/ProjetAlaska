@@ -45,7 +45,8 @@ function setAdminHome($page)
         ob_start(); ?>
 
         <h1>Bienvenue, Jean</h1><br>
-        <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a></div>
+        <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a></div><br>
+        <div>Pour aller sur votre site, c'est pas là : <a href="index.php">Accueil du site</a><div>
         <?php $admin_content = ob_get_clean();
 
         require('view/back/adminTemplateView.php');

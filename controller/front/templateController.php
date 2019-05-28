@@ -133,11 +133,11 @@ function templateView($page)
             <h1>Connexion à l'espace d'administration</h1>
             <br>
 
-            <form method="post" action="index.php?action=connexion">
+            <form id="connexion_form" method="post" action="index.php?action=connexion">
                 <label for="id">Adresse de messagerie :</label><br>
                 <input type="text" name="id" id="id" required><br>
                 <label for="pwd">Mot de passe :</label><br>
-                <input type="password" name="pwd" id="pwd" required><br><br>
+                <input type="password" name="pwd" id="pwd" required><br>
                 <input type="submit" value="Soumettre">
             </form>
 
@@ -148,14 +148,7 @@ function templateView($page)
 
         else
         {
-            $title="Erreur !"; ?>
-
-            <?php ob_start(); ?>
-
-            <h1>Error</h1><br>
-            <div>This page has not been written by Jean Forteroche yet</div>
-
-            <?php $content = ob_get_clean();
+            throw new Exception('This page has not been written by Jean Forteroche yet');
         }
 
         require('view/front/templateView.php');

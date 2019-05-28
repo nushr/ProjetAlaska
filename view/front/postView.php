@@ -105,7 +105,7 @@
             ?>
 
             <div id="add_comment_block">
-                <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+                <form id="comment_form" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     <div>
                         <label for="author">Pseudo :</label><br>
                         <input type="text" id="author" name="author">

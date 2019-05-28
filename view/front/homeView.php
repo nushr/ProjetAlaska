@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE HTML>
 
 <html lang="fr">
@@ -106,7 +108,16 @@
             <div>
                 <p><a href="index.php?action=page&amp;name=mentions">Mentions légales</a></p>
                 <p>&copy; Jean Forteroche 2019</p>
-                <p><a href="index.php?action=page&amp;name=connexion">Connexion</a></p>
+                <?php
+                if (!isset($_SESSION['logged']))
+                {
+                    ?><p><a href="index.php?action=page&amp;name=connexion">Connexion</a></p><?php
+                }
+                else
+                {
+                    ?><p><a href="index.php?action=adminLog&amp;name=index" id="logged_link">Espace administration</a></p><?php
+                }
+                ?>
             </div>
         </footer>
 
