@@ -34,7 +34,7 @@ class BackManager extends Manager
         while ($data = $req->fetch())
         {
             ?>
-            <p><a href="#"><?= $data['titre'] ?></a><a href="#" class="changeLink">Retoucher</a><a href="#" class="deleteLink">Supprimer</a></p>
+            <p><a href="#"><?= $data['titre'] ?></a><a href="#" class="changeLink">Retoucher</a><a href="index.php?action=deleteChapter&name=<?= $data['id'] ?>" class="deleteLink">Supprimer</a></p>
 
             <?php
         }
@@ -66,7 +66,7 @@ class BackManager extends Manager
             <h1>Ajout d'un chapitre</h1><br>
 
             <div id="new_chapter">
-                <form action="#" method="post">
+                <form action="index.php?action=newPost" method="post">
                     <label for="new_title">Titre du chapitre :</label>
                     <input type="text" id="new_title" name="new_title"></input><br><br>
                     <textarea id="new_chapter_content" name="new_chapter_content"></textarea><br>
@@ -95,6 +95,26 @@ class BackManager extends Manager
         }
 
         require('view/back/adminView.php');
+    }
+
+    public function addPost($title, $content)
+    {
+        $db = $this->dbConnect();
+
+        $dateCrea = date('Y-m-d');
+
+        $post = $db->prepare('INSERT INTO articles(date_creation, titre, contenu, date_maj) VALUES (?, ?, ?, ?)');
+        $post->execute(array($dateCrea , $title, $content, $dateCrea));
+    }
+
+    public function deletePost($id)
+    {
+        $db = $this->dbConnect();
+
+        $delete = $db->prepare('DELETE FROM articles WHERE id = ?');
+        $deletecomments = $db->prepare('DELETE FROM commentaires WHERE post_id = ?');
+        $delete->execute(array($id));
+        $deletecomments->execute(array($id));
     }
 
 }

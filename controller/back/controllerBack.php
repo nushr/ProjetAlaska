@@ -52,5 +52,22 @@ function setAdminHome($page)
 
         $page = $backManager->displayBackPage($page);
     }
+}
 
+function newPost($title, $content)
+{
+    $backManager = new BackManager();
+
+    $backManager->addPost($title, $content);
+
+    header("Location: index.php?action=adminLog&name=chapters");
+}
+
+function deletePost($id)
+{
+    $backManager = new BackManager();
+
+    $backManager->deletePost($id);
+
+    header("Location: index.php?action=adminLog&name=chapters");
 }

@@ -84,8 +84,18 @@ try {
             else {
                 throw new Exception('Pas de page correspondante');
             }
-
         }
+
+        elseif ($_GET['action'] == 'newPost')
+        {
+            newPost($_POST['new_title'], $_POST['new_chapter_content']);
+        }
+
+        elseif ($_GET['action'] == 'deleteChapter')
+        {
+            deletePost($_GET['name']);
+        }
+
     }
 
     else { // Si pas d'action précisée dans l'URL : revient à la page d'accueil avec liste des posts
