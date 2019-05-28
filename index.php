@@ -69,7 +69,8 @@ try {
             }
         }
 
-        elseif ($_GET['action'] == 'connexion') // controllerBack
+        // ! back office below
+        elseif ($_GET['action'] == 'connexion')
         {
             backConnexion($_POST['id'], $_POST['pwd']);
         }

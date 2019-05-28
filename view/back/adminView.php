@@ -15,6 +15,8 @@
         <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
 
+        <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=el6dm5d5vqksn4rgbysetwes7gga8yl54utj2n6zl5fk6jby"></script> <!-- Tinymce -->
+
     </head>
 
     <body>
@@ -39,6 +41,8 @@
         <div id="admin_content">
             <?= $admin_content ?>
         </div>
+
+        <script src="public/script/tinymce.js"></script>
 
     </body>
 

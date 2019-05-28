@@ -55,7 +55,7 @@ class BackManager extends Manager
             ob_start(); ?>
 
             <h1>Bienvenue, Jean</h1><br>
-            <div>Voulez-vous modifier vos informations personnelles, par hasard ?</div>
+            <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a></div>
             <?php $admin_content = ob_get_clean();
         }
 
@@ -63,8 +63,19 @@ class BackManager extends Manager
         {
             ob_start(); ?>
 
-            <h1>Nouveau chapitre</h1><br>
-            <div>Vous allez écrire un nouveau chapitre</div>
+            <h1>Ajout d'un chapitre</h1><br>
+
+            <div id="new_chapter">
+                <form action="#" method="post">
+                    <label for="new_title">Titre du chapitre :</label>
+                    <input type="text" id="new_title" name="new_title"></input><br><br>
+                    <textarea id="new_chapter_content" name="new_chapter_content"></textarea><br>
+                    <input type="submit" value="Publier"></input>
+                    <input type="button" value="Annuler"></input>
+                    <input type="button" value="Enregister"></input>
+                </form>
+            </div>
+
             <?php $admin_content = ob_get_clean();
         }
 

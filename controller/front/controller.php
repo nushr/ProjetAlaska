@@ -95,8 +95,6 @@ function chaptersList()
     $postManager = new PostManager();
 
     $posts = $postManager->listChapters();
-
-    require('view/chapters.php');
 }
 
 

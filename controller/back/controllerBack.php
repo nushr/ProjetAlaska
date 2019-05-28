@@ -25,7 +25,8 @@ function setAdminHome($page)
     session_start();
 
     if (!isset($_SESSION['logged']))
-    { ?>
+    {
+        ?>
         <div>Vous n'êtes pas identifié.</div>
         <div>Merci de vous connecter <a href="index.php?action=page&amp;name=connexion">ici</a></div>
         <?php
