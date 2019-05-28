@@ -6,7 +6,7 @@
 
         <meta charset="utf-8">
 
-        <title>Billet simple pour l'Alaska : Administration</title>
+        <title>Billet simple pour l'Alaska : Espace Administration</title>
 
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 

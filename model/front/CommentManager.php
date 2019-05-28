@@ -50,7 +50,6 @@ class CommentManager extends Manager
         return $checker;
     }
 
-
     public function countComments($postId)
     {
         $db = $this->dBConnect();

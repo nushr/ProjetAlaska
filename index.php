@@ -1,7 +1,10 @@
 <?php
 
-require('controller/front/controller.php');
-require('controller/back/controllerBack.php');
+require('controller/front/homeController.php');
+require('controller/front/postController.php');
+require('controller/front/templateController.php');
+require('controller/back/adminController.php');
+require('controller/back/adminTemplateController.php');
 
 
 try {
@@ -9,12 +12,7 @@ try {
     if (isset($_GET['action']))
     {
 
-        if ($_GET['action'] == 'listPosts')
-        {
-            listPosts();
-        }
-
-        elseif ($_GET['action'] == 'post')
+        if ($_GET['action'] == 'post')
         {
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {
@@ -62,7 +60,7 @@ try {
         {
             if (isset ($_GET['name']))
             {
-                elseView($_GET['name']);
+                templateView($_GET['name']);
             }
             else {
                 throw new Exception('Pas de page correspondante');
@@ -75,8 +73,15 @@ try {
             backConnexion($_POST['id'], $_POST['pwd']);
         }
 
-        elseif ($_GET['action'] == 'adminLog') // Admin pages
+        elseif ($_GET['action'] == 'adminLog') // towards admin pages
         {
+            session_start();
+
+            if (!isset($_SESSION['logged']))
+            {
+                throw new Exception("Vous n'êtes pas identifié");
+            }
+
             if (isset ($_GET['name']))
             {
                 setAdminHome($_GET['name']);
@@ -96,6 +101,11 @@ try {
             deletePost($_GET['name']);
         }
 
+        else
+        {
+            throw new Exception('Cette page n\'existe pas');
+        }
+
     }
 
     else { // Si pas d'action précisée dans l'URL : revient à la page d'accueil avec liste des posts
@@ -106,8 +116,8 @@ try {
 // En cas de soucis avec ce qui est entré dans l'URL
 catch(Exception $e)
 {
-    $title="Erreur direction";
+    $title="Erreur d'aiguillage";
     $content="Erreur : " . $e->getMessage() . "<br>Cliquez pour <a href=\"index.php\">revenir à l'accueil</a>";
 
-    require('view/front/elseView.php');
+    require('view/front/templateView.php');
 }

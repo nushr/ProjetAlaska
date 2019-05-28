@@ -93,7 +93,7 @@
                 ?>
             </div>
 
-            <?php // check whether there are comments for accurate display
+            <?php // checks whether there are comments for accurate display
             if ($nbComments['COUNT(ID)'] == 0)
             { ?>
                 <h3 id="add_comment">Ajouter le premier commentaire</h3><br>
