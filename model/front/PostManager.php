@@ -51,4 +51,43 @@ class PostManager extends Manager
         return $result;
     }
 
+    public function getLastPostId()
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
+
+        $req->execute();
+
+        $lastPost = $req->fetch();
+
+        return $lastPost;
+    }
+
+    public function getNextPostId($currentId)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT id FROM articles WHERE id > ? ORDER BY id ASC LIMIT 1');
+
+        $req->execute(array($currentId));
+
+        $nextPost = $req->fetch();
+
+        return $nextPost;
+    }
+
+    public function getPrevPostId($currentId)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT id FROM articles WHERE id < ? ORDER BY id DESC LIMIT 1');
+
+        $req->execute(array($currentId));
+
+        $prevPost = $req->fetch();
+
+        return $prevPost;
+    }
+
 }

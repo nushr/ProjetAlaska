@@ -17,7 +17,7 @@ function backConnexion($id, $pwd)
     }
 
     else {
-        throw new Exception('Vos identifiants de session sont incorrects');
+        throw new Exception('Vos identifiants de session sont incorrects.<br>Pour un nouvel essai, <a href=\"index.php?action=page&name=connexion\">cliquer ici</a><br>');
     }
 }
 

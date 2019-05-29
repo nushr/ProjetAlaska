@@ -33,7 +33,7 @@
                 <p><a href="index.php?action=adminLog&name=addchapter">Ecrire un nouveau chapitre</a></p>
                 <p><a href="index.php?action=adminLog&name=comments">Modérer les commentaires</a></p>
                 <p><a href="index.php?action=adminLog&name=chapters">Voir les chapitres publiés</a></p>
-                <p><a href="index.php?action=adminLog&name=logout">Se déconnecter</a></p>
+                <p><a href="index.php?action=adminLog&name=logout" id="logged_link">Se déconnecter</a></p>
             </div>
             <hr>
         </menu>

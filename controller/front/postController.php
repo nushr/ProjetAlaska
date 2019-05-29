@@ -25,6 +25,33 @@ function post() // pick & display
     require('view/front/postView.php');
 }
 
+function getLastPostId()
+{
+    $postManager = new PostManager();
+
+    $lastPost = $postManager->getLastPostId();
+
+    return $lastPost;
+}
+
+function getNextPostId($currentId)
+{
+    $postManager = new PostManager();
+
+    $nextPost = $postManager->getNextPostId($currentId);
+
+    return $nextPost;
+}
+
+function getPrevPostId($currentId)
+{
+    $postManager = new PostManager();
+
+    $prevPost = $postManager->getPrevPostId($currentId);
+
+    return $prevPost;
+}
+
 function signalComment($commentId)
 {
     $commentManager = new CommentManager();

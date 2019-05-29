@@ -30,6 +30,7 @@
         <menu>
             <hr>
             <div>
+                <p><a href="index.php">Accueil</a></p>
                 <p><a href="index.php?action=page&amp;name=author">A propos de l'auteur</a></p>
                 <p><a href="index.php?action=page&amp;name=novel">Le roman</a></p>
                 <p><a href="index.php?action=page&amp;name=chapters">Liste des chapitres publiés</a></p>
@@ -54,7 +55,7 @@
                 }
                 else
                 {
-                    ?><p><a href="index.php?action=adminLog&amp;name=index">Espace administration</a></p><?php
+                    ?><p><a href="index.php?action=adminLog&amp;name=index" id="logged_link">Espace administration</a></p><?php
                 }
                 ?>
             </div>

@@ -28,11 +28,14 @@
             <hr>
             <div>
                 <?php
-                $nbPosts = postsNb();
+                // $nbPosts = postsNb(); INUTILE ?
+                $lastPost = getLastPostId();
+                $nextPost = getNextPostId($_GET['id']);
+                $prevPost = getPrevPostId($_GET['id']);
 
-                if ($post['id']>1)
+                if ($_GET['id']>1)
                 {
-                    ?><p><a href="index.php?action=post&amp;id=<?= $post['id']-1 ?>">Chapitre précédent</a></p><?php
+                    ?><p><a href="index.php?action=post&amp;id=<?= $prevPost[0] ?>">Chapitre précédent</a></p><?php
                 }
                 else {
                     ?><p class="nav_disabled">Chapitre précédent</p><?php
@@ -40,9 +43,9 @@
                 ?>
                 <p><a href="index.php">Retour à l'accueil</a></p>
                 <?php
-                if ($post['id']<$nbPosts['COUNT(ID)'])
+                if ($_GET['id']<$lastPost[0])
                 {
-                    ?><p><a href="index.php?action=post&amp;id=<?= $post['id']+1 ?>">Chapitre suivant</a></p><?php
+                    ?><p><a href="index.php?action=post&amp;id=<?= $nextPost[0] ?>">Chapitre suivant</a></p><?php
                 }
                 else
                 {

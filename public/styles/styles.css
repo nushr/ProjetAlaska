@@ -272,3 +272,8 @@ footer p a:hover {
 #new_title {
     width:100%;
 }
+
+#logged_link {
+    color:green;
+    font-weight:bold;
+}
