@@ -74,7 +74,18 @@ function templateView($page)
             <p>Cher lecteur, j'en suis certain, tu t'es déjà demandé : mais comment diable écrire à Jean Forteroche ?</p><br>
             <p>Heureusement pour toi, grâce à l'internet, c'est aujourd'hui très simple.</p><br>
 
-            <p><strong>Adresse postale</strong><br>4 chemin de la Masse Salariale<br>48980 Fortenouvelle</p>
+            <p><strong>Adresse postale</strong><br>4 chemin de la Masse Salariale<br>48980 Fortenouvelle</p><br>
+
+            <div>
+                <p><strong>Envoi automatisé d'un mél</strong></p>
+                <form id="send_mail_form" method="post" action="#">
+                    <label for="sender_name">Nom :</label><br>
+                    <input type="text" id="sender_name" name="sender_name" required></input><br>
+                    <label for="sender_text">Message :</label><br>
+                    <textarea for="sender_text" id="sender_name" name="sender_name" required></textarea><br>
+                    <input type="submit" value="Envoyer">
+                </form>
+            </div>
 
             <?php $content = ob_get_clean();
         }
