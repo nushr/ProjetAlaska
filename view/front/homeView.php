@@ -59,6 +59,7 @@
             <div id="bonus">
                 <h1>Le coin des goodies</h1>
                 <a href="index.php?action=page&amp;name=ours#bear_bloc"><p>-> Photographie d'un ours (exclusif !)</p></a>
+                <a href="index.php?action=page&amp;name=recipe"><p>-> Recette du dessert "Bombe Alaska" (total gourmand ;-)</p></a>
             </div>
         </div>
 
