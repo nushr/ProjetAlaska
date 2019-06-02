@@ -27,8 +27,11 @@ function setAdminHome($page)
         while ($data = $chapters->fetch())
         {
             ?>
-            <p><a href="index.php?action=adminLog&name=chapter&id=<?= $data['id'] ?>"><?= $data['titre'] ?></a><a href="index.php?action=adminLog&name=updatechapter&id=<?= $data['id'] ?>" class="changeLink">Retoucher</a><a href="index.php?action=deleteChapter&name=<?= $data['id'] ?>" class="deleteLink">Supprimer</a></p>
-
+            <p>
+                <a href="index.php?action=adminLog&name=chapter&id=<?= $data['id'] ?>"><?= $data['titre'] ?></a>
+                <a href="index.php?action=adminLog&name=updatechapter&id=<?= $data['id'] ?>" class="changeLink">Retoucher</a>
+                <a href="index.php?action=adminLog&name=deleteconfirm&id=<?= $data['id'] ?>" class="delete_link">Supprimer</a>
+            </p>
             <?php
         }
 
@@ -123,7 +126,27 @@ function setAdminHome($page)
 
         <h1><?= $chapter['titre'] ?></h1><br>
         <div><?= $chapter['contenu'] ?></div><br>
-        <p><a href="index.php?action=adminLog&name=chapters">Retour à la liste des articles</a><a href="index.php?action=adminLog&name=updatechapter&id=<?= $chapter['id'] ?>" class="changeLink">Retoucher</a><a href="index.php?action=deleteChapter&name=<?= $chapter['id'] ?>" class="deleteLink">Supprimer</a></p>
+        <p>
+            <a href="index.php?action=adminLog&name=chapters">Retour à la liste des articles</a>
+            <a href="index.php?action=adminLog&name=updatechapter&id=<?= $chapter['id'] ?>" class="changeLink">Retoucher</a>
+            <a href="index.php?action=adminLog&name=deleteconfirm&id=<?= $chapter['id'] ?>" class="delete_link">Supprimer</a>
+        </p>
+        <?php $admin_content = ob_get_clean();
+
+        require('view/back/adminTemplateView.php');
+    }
+
+    elseif ($page == "deleteconfirm")
+    {
+        ob_start(); ?>
+
+        <p>Etes-vous sûr de vouloir supprimer ce chapitre ?</p>
+        <p>Cette action est <u>irréversible</u>.</p><br>
+        <p>
+            <a href="index.php?action=deleteChapter&name=<?= $_GET['id'] ?>">Oui</a>
+            <span>&emsp;</span>
+            <a href="index.php?action=adminLog&name=chapters">Non</a>
+        </p>
         <?php $admin_content = ob_get_clean();
 
         require('view/back/adminTemplateView.php');

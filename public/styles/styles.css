@@ -280,11 +280,11 @@ footer p a:hover {
     color:orange;
 }
 
-.deleteLink {
+.delete_link {
     color:red;
 }
 
-.changeLink, .deleteLink {
+.changeLink, .delete_link {
     margin-left:15px;
 }
 
