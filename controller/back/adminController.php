@@ -30,6 +30,15 @@ function newPost($title, $content)
     header("Location: index.php?action=adminLog&name=chapters");
 }
 
+function updatePost($title, $content, $id)
+{
+    $adminManager = new AdminManager();
+
+    $bool = $adminManager->updatePostContent($title, $content, $id);
+
+    header("Location: index.php?action=adminLog&name=chapters");
+}
+
 function deletePost($id)
 {
     $adminManager = new AdminManager();

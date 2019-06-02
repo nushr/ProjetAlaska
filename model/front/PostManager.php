@@ -33,7 +33,7 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT titre,id FROM articles');
+        $req = $db->prepare('SELECT titre,id FROM articles ORDER BY id ASC');
 
         $req->execute();
 

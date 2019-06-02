@@ -200,13 +200,32 @@ h4 {
     float:right;
 }
 
-#connexion_form input, #send_mail_form input, #send_mail_form textarea {
+#connexion_form input {
     width:40%;
     padding:6px;
-    margin : 2px 0;
+    margin:2px 0;
 }
 
-#connexion_form input:last-child, #send_mail_form input:last-child {
+#connexion_form input:last-child {
+    width:auto;
+}
+
+#contact_bloc {
+    display:flex;
+    justify-content: space-between;
+}
+
+#send_mail_form {
+    width:70%;
+}
+
+#send_mail_form input, #send_mail_form textarea {
+    width:100%;
+    padding:6px;
+    margin:2px 0;
+}
+
+#send_mail_form input:last-child {
     width:auto;
 }
 
@@ -269,11 +288,25 @@ footer p a:hover {
     margin-left:15px;
 }
 
-#new_title {
+#new_title, #modified_title {
     width:100%;
 }
 
 #logged_link {
     color:green;
     font-weight:bold;
+}
+
+#new_chapter form a, #update_chapter form a {
+    margin-left: 30px;
+}
+
+#new_chapter_submit, #modified_chapter_submit {
+    padding:0;
+    background:none;
+    border:0 none;
+    cursor:pointer;
+    color:#586F99;
+    font-weight:bold;
+    font-size: 1em;
 }

@@ -101,6 +101,11 @@ try {
             deletePost($_GET['name']);
         }
 
+        elseif ($_GET['action'] == 'updatePost')
+        {
+            updatePost($_POST['modified_title'], $_POST['modified_content'], $_GET['id']);
+        }
+
         else
         {
             throw new Exception('Cette page n\'existe pas');

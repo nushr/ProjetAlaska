@@ -21,7 +21,7 @@ class AdminManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $req = $db->prepare('SELECT titre,id FROM articles');
+        $req = $db->prepare('SELECT titre,id FROM articles ORDER BY id ASC');
         $req->execute();
 
         return $req;
@@ -47,6 +47,16 @@ class AdminManager extends Manager
 
         $post = $db->prepare('INSERT INTO articles(date_creation, titre, contenu, date_maj) VALUES (?, ?, ?, ?)');
         $post->execute(array($dateCrea , $title, $content, $dateCrea));
+    }
+
+    public function updatePostContent($title, $content, $id)
+    {
+        $db = $this->dbConnect();
+
+        $dateUpdate = date('Y-m-d');
+
+        $changedPost = $db->prepare('UPDATE articles SET titre = ?, contenu = ?, date_maj = ? WHERE id = ?');
+        $bool = $changedPost->execute(array($title, $content, $dateUpdate, $id));
     }
 
     public function deletePost($id)
