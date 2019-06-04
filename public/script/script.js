@@ -1,9 +1,11 @@
-// Show/hide comments toggle
-
+////////////////////////////
+// Shows / hides comments //
+////////////////////////////
 var showComments = document.getElementById('see_comments');
 var commentsBlock = document.getElementById('comments_block');
 var showInitial = showComments.textContent;
 
+// Displays / hides comments on click
 showComments.addEventListener('click', function() {
     if (showComments.textContent != "Masquer les commentaires") {
         commentsBlock.style.display = "block";
@@ -12,11 +14,18 @@ showComments.addEventListener('click', function() {
         commentsBlock.style.display = "none";
         showComments.textContent = showInitial;
     }
-})
+});
+
+// Displays comments default when clicked on from home page
+if (window.location.href.endsWith("comments")) {
+    commentsBlock.style.display = "block";
+    showComments.textContent = "Masquer les commentaires";
+}
 
 
-// Show/hide add comment form toggle
-
+///////////////////s///////////////////
+// Displays / hides add comment form //
+///////////////////////////////////////
 var showAddForm = document.getElementById('add_comment');
 var addCommentBlock = document.getElementById('add_comment_block');
 

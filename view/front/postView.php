@@ -61,6 +61,7 @@
             <p><?= $post['contenu'] ?></p><br>
             <p><img alt="signature" src="public/assets/signature.png"></p>
             <br>
+            
             <?php
             if ($nbComments['COUNT(ID)'] == 0)
             { ?>
