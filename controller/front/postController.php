@@ -22,7 +22,14 @@ function post() // pick & display
     $comments = $commentManager->getComments($_GET['id']);
     $nbComments = $commentManager->countComments($_GET['id']);
 
-    require('view/front/postView.php');
+    if (is_null($post['id']))
+    {
+        throw new Exception('Ce chapitre n\'existe pas.');
+    }
+    else
+    {
+        require('view/front/postView.php');
+    }
 }
 
 function getLastPostId()

@@ -112,9 +112,9 @@ try {
             allowComment($_GET['id']);
         }
 
-        elseif ($_GET['action'] == 'hideComment')
+        elseif ($_GET['action'] == 'deleteComment')
         {
-            hideComment($_GET['id']);
+            deleteComment($_GET['id']);
         }
 
         else

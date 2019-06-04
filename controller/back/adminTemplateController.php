@@ -53,7 +53,16 @@ function setAdminHome($page)
 
         <h1>Bienvenue, Jean</h1><br>
         <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a> !</div><br>
-        <div>Vous avez <?= $signaledNb['COUNT(ID)'] ?> commentaires en attente de modération. <a href="index.php?action=adminLog&name=comments">Voir</a></div><br>
+        <?php
+        if ($signaledNb['COUNT(ID)'] == 0)
+        { ?>
+            <div>Vous n'avez pas commentaires en attente de modération. <a href="index.php?action=adminLog&name=comments">Bravo !</a></div><br>
+        <?php }
+        else
+        { ?>
+            <div>Vous avez <?= $signaledNb['COUNT(ID)'] ?> commentaires en attente de modération. <a href="index.php?action=adminLog&name=comments">Voir</a></div><br>
+        <?php }
+        ?>
         <div>Pour aller sur votre site, c'est par là : <a href="index.php">Accueil du site</a><div>
         <?php $admin_content = ob_get_clean();
 
@@ -116,28 +125,39 @@ function setAdminHome($page)
 
         $comments = $adminManager->listOutrageousComments();
 
-        ob_start(); ?>
+        $signaledNb = $adminManager->countSignaledComments();
 
-        <h1>Modération des commentaires</h1><br>
-        <div>Voici les commentaires actuellement signalés comme outrageants :</div><br>
-
-        <?php while($data = $comments->fetch())
+        if ($signaledNb['COUNT(ID)'] == 0)
         {
-        $commentDate = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
-        ?>
+            ob_start(); ?>
+            <h1>Modération des commentaires</h1><br>
+            <div>Vous n'avez pas de commentaires actuellement signalés comme outrageants. C'est la fête !</div>
+            <?php $admin_content = ob_get_clean();
+        }
+        else
+        { ?>
+            <h1>Modération des commentaires</h1><br>
+            <div>Voici les commentaires actuellement signalés comme outrageants :</div><br>
 
-            <p>" <?= $data['contenu'] ?> "</p>
-            <p>Publié par <b><?= $data['auteur'] ?></b>, le <?= $commentDate->format('d/m/Y') ?></p>
-            <p>
-                <span><a href="index.php?action=allowComment&id=<?= $data['id'] ?>" class="allow_comment_link">Autoriser le commentaire</a></span>
-                <span><a href="index.php?action=hideComment&id=<?= $data['id'] ?>" class="hide_comment_link">Cacher le commentaire</a></span>
-            </p><br>
+            <?php while($data = $comments->fetch())
+            {
+            $commentDate = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
+            $commentChapter = $adminManager->getChapterNb($data['post_id']);
+            ?>
 
-        <?php }
-        $comments->closeCursor()
-        ?>
+                <p>" <?= $data['contenu'] ?> "</p>
+                <p>Publié par <b><?= $data['auteur'] ?></b>, le <?= $commentDate->format('d/m/Y') ?>, à propos du <a href="index.php?action=adminLog&name=chapter&id=<?= $data['post_id'] ?>"><?= $commentChapter['titre'] ?></p>
+                <p>
+                    <span><a href="index.php?action=allowComment&id=<?= $data['id'] ?>" class="allow_comment_link">Autoriser le commentaire</a></span>
+                    <span><a href="index.php?action=deleteComment&id=<?= $data['id'] ?>" class="delete_comment_link">Supprimer le commentaire</a></span>
+                </p><br>
 
-        <?php $admin_content = ob_get_clean();
+            <?php }
+            $comments->closeCursor()
+            ?>
+
+            <?php $admin_content = ob_get_clean();
+        }
 
         require('view/back/adminTemplateView.php');
     }

@@ -56,11 +56,11 @@ function allowComment($id)
     header("Location: index.php?action=adminLog&name=comments");
 }
 
-function hideComment($id)
+function deleteComment($id)
 {
     $adminManager = new AdminManager();
 
-    $adminManager->hideComment($id);
+    $adminManager->deleteComment($id);
 
     header("Location: index.php?action=adminLog&name=comments");
 }

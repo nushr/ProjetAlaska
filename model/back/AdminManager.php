@@ -73,10 +73,22 @@ class AdminManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $comments = $db->prepare('SELECT id, contenu, auteur, date_creation FROM commentaires WHERE signale = 1 AND visible = 1 ORDER BY id DESC');
+        $comments = $db->prepare('SELECT id, contenu, auteur, date_creation, post_id FROM commentaires WHERE signale = 1 ORDER BY id DESC');
         $comments->execute();
 
         return $comments;
+    }
+
+    public function getChapterNb($id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT titre FROM articles WHERE id = ?');
+        $req->execute(array($id));
+
+        $chapterNb = $req->fetch();
+
+        return $chapterNb;
     }
 
     public function allowComment($id)
@@ -87,11 +99,11 @@ class AdminManager extends Manager
         $allowed->execute(array($id));
     }
 
-    public function hideComment($id)
+    public function deleteComment($id)
     {
         $db = $this->dbConnect();
 
-        $hidden = $db->prepare('UPDATE commentaires SET visible = 0 WHERE id = ?');
+        $hidden = $db->prepare('DELETE FROM commentaires WHERE id = ?');
         $hidden->execute(array($id));
     }
 
@@ -99,7 +111,7 @@ class AdminManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE signale = 1 AND visible = 1');
+        $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE signale = 1');
         $nbComments->execute();
 
         $result = $nbComments->fetch(\PDO::FETCH_ASSOC);

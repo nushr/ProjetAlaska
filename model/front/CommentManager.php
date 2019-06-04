@@ -9,7 +9,7 @@ class CommentManager extends Manager
     {
         $db = $this->dbConnect();
 
-        $comments = $db->prepare('SELECT id, post_id, auteur, date_creation, contenu, signale FROM commentaires WHERE post_id = ? AND visible = 1 ORDER BY id ASC');
+        $comments = $db->prepare('SELECT id, post_id, auteur, date_creation, contenu, signale FROM commentaires WHERE post_id = ? ORDER BY id DESC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -54,7 +54,7 @@ class CommentManager extends Manager
     {
         $db = $this->dBConnect();
 
-        $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE post_id = ? AND visible = 1');
+        $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE post_id = ?');
         $nbComments->execute(array($postId));
 
         $result = $nbComments->fetch(\PDO::FETCH_ASSOC);
