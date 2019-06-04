@@ -1,5 +1,8 @@
 <?php
 
+$sess_id = session_id();
+if (empty ($sess_id)) session_start();
+
 require('controller/front/homeController.php');
 require('controller/front/postController.php');
 require('controller/front/templateController.php');
@@ -75,8 +78,6 @@ try {
 
         elseif ($_GET['action'] == 'adminLog') // towards admin pages
         {
-            session_start();
-
             if (!isset($_SESSION['logged']))
             {
                 throw new Exception("Vous n'êtes pas identifié");

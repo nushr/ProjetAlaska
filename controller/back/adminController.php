@@ -11,7 +11,6 @@ function backConnexion($id, $pwd)
 
     if ($dbPwd[0] == hash('md5', $pwd))
     {
-        session_start();
         $_SESSION['logged'] = true;
         header("Location: index.php?action=adminLog&name=index");
     }
