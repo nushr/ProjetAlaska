@@ -56,7 +56,7 @@ class AdminManager extends Manager
         $dateUpdate = date('Y-m-d');
 
         $changedPost = $db->prepare('UPDATE articles SET titre = ?, contenu = ?, date_maj = ? WHERE id = ?');
-        $bool = $changedPost->execute(array($title, $content, $dateUpdate, $id));
+        $changedPost->execute(array($title, $content, $dateUpdate, $id));
     }
 
     public function deletePost($id)
@@ -67,6 +67,43 @@ class AdminManager extends Manager
         $deletecomments = $db->prepare('DELETE FROM commentaires WHERE post_id = ?');
         $delete->execute(array($id));
         $deletecomments->execute(array($id));
+    }
+
+    public function listOutrageousComments()
+    {
+        $db = $this->dbConnect();
+
+        $comments = $db->prepare('SELECT id, contenu, auteur, date_creation FROM commentaires WHERE signale = 1 AND visible = 1 ORDER BY id DESC');
+        $comments->execute();
+
+        return $comments;
+    }
+
+    public function allowComment($id)
+    {
+        $db = $this->dbConnect();
+
+        $allowed = $db->prepare('UPDATE commentaires SET signale = 0 WHERE id = ?');
+        $allowed->execute(array($id));
+    }
+
+    public function hideComment($id)
+    {
+        $db = $this->dbConnect();
+
+        $hidden = $db->prepare('UPDATE commentaires SET visible = 0 WHERE id = ?');
+        $hidden->execute(array($id));
+    }
+
+    public function countSignaledComments()
+    {
+        $db = $this->dbConnect();
+
+        $nbComments = $db->prepare('SELECT COUNT(ID) FROM commentaires WHERE signale = 1 AND visible = 1');
+        $nbComments->execute();
+
+        $result = $nbComments->fetch(\PDO::FETCH_ASSOC);
+        return $result;
     }
 
 }

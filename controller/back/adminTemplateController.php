@@ -45,10 +45,15 @@ function setAdminHome($page)
 
     elseif ($page == "index")
     {
+        $adminManager = new AdminManager();
+
+        $signaledNb = $adminManager->countSignaledComments();
+
         ob_start(); ?>
 
         <h1>Bienvenue, Jean</h1><br>
-        <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a></div><br>
+        <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a> !</div><br>
+        <div>Vous avez <?= $signaledNb['COUNT(ID)'] ?> commentaires en attente de modération. <a href="index.php?action=adminLog&name=comments">Voir</a></div><br>
         <div>Pour aller sur votre site, c'est par là : <a href="index.php">Accueil du site</a><div>
         <?php $admin_content = ob_get_clean();
 
@@ -107,10 +112,31 @@ function setAdminHome($page)
 
     elseif ($page == "comments")
     {
+        $adminManager = new AdminManager();
+
+        $comments = $adminManager->listOutrageousComments();
+
         ob_start(); ?>
 
         <h1>Modération des commentaires</h1><br>
-        <div>Voici la modération des commentaires</div>
+        <div>Voici les commentaires actuellement signalés comme outrageants :</div><br>
+
+        <?php while($data = $comments->fetch())
+        {
+        $commentDate = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
+        ?>
+
+            <p>" <?= $data['contenu'] ?> "</p>
+            <p>Publié par <b><?= $data['auteur'] ?></b>, le <?= $commentDate->format('d/m/Y') ?></p>
+            <p>
+                <span><a href="index.php?action=allowComment&id=<?= $data['id'] ?>" class="allow_comment_link">Autoriser le commentaire</a></span>
+                <span><a href="index.php?action=hideComment&id=<?= $data['id'] ?>" class="hide_comment_link">Cacher le commentaire</a></span>
+            </p><br>
+
+        <?php }
+        $comments->closeCursor()
+        ?>
+
         <?php $admin_content = ob_get_clean();
 
         require('view/back/adminTemplateView.php');
@@ -140,7 +166,7 @@ function setAdminHome($page)
     {
         ob_start(); ?>
 
-        <p>Etes-vous sûr de vouloir supprimer ce chapitre ?</p>
+        <p>Etes-vous sûr de vouloir supprimer ce chapitre, ainsi que tous les commentaires qui y sont liés ?</p>
         <p>Cette action est <u>irréversible</u>.</p><br>
         <p>
             <a href="index.php?action=deleteChapter&name=<?= $_GET['id'] ?>">Oui</a>

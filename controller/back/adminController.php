@@ -34,7 +34,7 @@ function updatePost($title, $content, $id)
 {
     $adminManager = new AdminManager();
 
-    $bool = $adminManager->updatePostContent($title, $content, $id);
+    $adminManager->updatePostContent($title, $content, $id);
 
     header("Location: index.php?action=adminLog&name=chapters");
 }
@@ -46,4 +46,22 @@ function deletePost($id)
     $adminManager->deletePost($id);
 
     header("Location: index.php?action=adminLog&name=chapters");
+}
+
+function allowComment($id)
+{
+    $adminManager = new AdminManager();
+
+    $adminManager->allowComment($id);
+
+    header("Location: index.php?action=adminLog&name=comments");
+}
+
+function hideComment($id)
+{
+    $adminManager = new AdminManager();
+
+    $adminManager->hideComment($id);
+
+    header("Location: index.php?action=adminLog&name=comments");
 }

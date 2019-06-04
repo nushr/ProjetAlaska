@@ -106,6 +106,16 @@ try {
             updatePost($_POST['modified_title'], $_POST['modified_content'], $_GET['id']);
         }
 
+        elseif ($_GET['action'] == 'allowComment')
+        {
+            allowComment($_GET['id']);
+        }
+
+        elseif ($_GET['action'] == 'hideComment')
+        {
+            hideComment($_GET['id']);
+        }
+
         else
         {
             throw new Exception('Cette page n\'existe pas');

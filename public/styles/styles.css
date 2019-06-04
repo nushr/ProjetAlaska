@@ -310,3 +310,12 @@ footer p a:hover {
     font-weight:bold;
     font-size: 1em;
 }
+
+.allow_comment_link {
+    color:green;
+}
+
+.hide_comment_link {
+    color:red;
+    margin-left:25px;
+}
