@@ -297,11 +297,11 @@ footer p a:hover {
     font-weight:bold;
 }
 
-#new_chapter form a, #update_chapter form a {
+#new_chapter form a, #update_chapter form a, #change_address_form a, #change_pwd_form a {
     margin-left: 30px;
 }
 
-#new_chapter_submit, #modified_chapter_submit {
+#new_chapter_submit, #modified_chapter_submit, #new_mail_submit, #new_pwd_submit { /* Changes submit buttons style */
     padding:0;
     background:none;
     border:0 none;
@@ -318,4 +318,10 @@ footer p a:hover {
 .delete_comment_link {
     color:red;
     margin-left:25px;
+}
+
+#new_log_address, #new_log_pwd, #new_log_pwd_confirm, #old_log_pwd {
+    width:40%;
+    padding:6px;
+    margin:2px 0;
 }

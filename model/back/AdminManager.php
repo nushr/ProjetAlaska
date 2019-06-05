@@ -118,4 +118,44 @@ class AdminManager extends Manager
         return $result;
     }
 
+    public function getLogAddress($id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT mail FROM utilisateurs WHERE id = ?');
+        $req->execute(array($id));
+
+        $address = $req->fetch();
+
+        return $address;
+    }
+
+    public function changeDbAddress($address, $id)
+    {
+        $db = $this->dbConnect();
+
+        $newAddress = $db->prepare('UPDATE utilisateurs SET mail = ? WHERE id = ?');
+        $newAddress->execute(array($address, $id));
+    }
+
+    public function checkPwd($id)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT pwd FROM utilisateurs WHERE id = ?');
+        $req->execute(array($id));
+
+        $dbPwd = $req->fetch();
+
+        return $dbPwd;
+    }
+
+    public function updatePwd($hashedPwd, $id)
+    {
+        $db = $this->dbConnect();
+
+        $newPassword = $db->prepare('UPDATE utilisateurs SET pwd = ? WHERE id = ?');
+        $newPassword->execute(array($hashedPwd, $id));
+    }
+
 }

@@ -117,6 +117,16 @@ try {
             deleteComment($_GET['id']);
         }
 
+        elseif ($_GET['action'] == 'updateAddress')
+        {
+            updateAddress($_POST['new_log_address'], $_GET['id']);
+        }
+
+        elseif ($_GET['action'] == "updatePwd")
+        {
+            updatePwd($_POST['old_log_pwd'], $_POST['new_log_pwd'], $_POST['new_log_pwd_confirm'], $_GET['id']);
+        }
+
         else
         {
             throw new Exception('Cette page n\'existe pas');

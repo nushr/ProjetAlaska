@@ -16,7 +16,7 @@ function backConnexion($id, $pwd)
     }
 
     else {
-        throw new Exception('Vos identifiants de session sont incorrects.<br>Pour un nouvel essai, <a href=\"index.php?action=page&name=connexion\">cliquer ici</a><br>');
+        throw new Exception('Vos identifiants de session sont incorrects.<br>Pour un nouvel essai, <a href="index.php?action=page&name=connexion">cliquer ici</a><br>');
     }
 }
 
@@ -63,4 +63,39 @@ function deleteComment($id)
     $adminManager->deleteComment($id);
 
     header("Location: index.php?action=adminLog&name=comments");
+}
+
+function updateAddress($newAddress, $id)
+{
+    $adminManager = new AdminManager();
+
+    $adminManager->changeDbAddress($newAddress, $id);
+
+    header("Location: index.php?action=adminLog&name=infos");
+}
+
+function updatePwd($oldPwd, $newPwd, $newPwdConfirm, $id)
+{
+    $adminManager = new AdminManager();
+
+    $old = $adminManager->checkPwd($id);
+
+    if ($old[0] == hash('md5', $oldPwd))
+    {
+        if ($newPwd != $newPwdConfirm)
+        {
+            throw new Exception('Merci de rentrer deux fois le même mot de passe<br><a href="index.php?action=adminLog&name=pwd">Ré-essayer</a><br>');
+        }
+        else
+        {
+            $hashedPwd = hash('md5', $newPwd);
+            $new = $adminManager->updatePwd($hashedPwd, $id);
+            header("Location: index.php?action=adminLog&name=infos");
+        }
+    }
+    else
+    {
+        throw new Exception('Vous n\'avez pas renseigné le bon ancien mot de passe<br><a href="index.php?action=adminLog&name=pwd">Ré-essayer</a><br>');
+    }
+
 }

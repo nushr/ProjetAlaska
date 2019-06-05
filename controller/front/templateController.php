@@ -83,6 +83,8 @@ function templateView($page)
                     <form method="post" action="#">
                         <label for="sender_name">Nom :</label><br>
                         <input type="text" id="sender_name" name="sender_name" required></input><br>
+                        <label for="sender_address">Adresse mail : </label><br>
+                        <input type="text" id="sender_address" name="sender_address" required></input><br>
                         <label for="sender_text">Message :</label><br>
                         <textarea for="sender_text" id="sender_name" name="sender_name" required></textarea><br>
                         <input type="submit" value="Envoyer">

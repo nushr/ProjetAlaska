@@ -52,7 +52,7 @@ function setAdminHome($page)
         ob_start(); ?>
 
         <h1>Bienvenue, Jean</h1><br>
-        <div>Pour modifier vos informations personnelles, <a href="#">cliquez-ici</a> !</div><br>
+        <div>Pour modifier vos informations personnelles, <a href="index.php?action=adminLog&name=infos">cliquez-ici</a> !</div><br>
         <?php
         if ($signaledNb['COUNT(ID)'] == 0)
         { ?>
@@ -64,6 +64,7 @@ function setAdminHome($page)
         <?php }
         ?>
         <div>Pour aller sur votre site, c'est par là : <a href="index.php">Accueil du site</a><div>
+
         <?php $admin_content = ob_get_clean();
 
         require('view/back/adminTemplateView.php');
@@ -135,7 +136,8 @@ function setAdminHome($page)
             <?php $admin_content = ob_get_clean();
         }
         else
-        { ?>
+        {
+            ob_start(); ?>
             <h1>Modération des commentaires</h1><br>
             <div>Voici les commentaires actuellement signalés comme outrageants :</div><br>
 
@@ -155,7 +157,6 @@ function setAdminHome($page)
             <?php }
             $comments->closeCursor()
             ?>
-
             <?php $admin_content = ob_get_clean();
         }
 
@@ -177,6 +178,7 @@ function setAdminHome($page)
             <a href="index.php?action=adminLog&name=updatechapter&id=<?= $chapter['id'] ?>" class="changeLink">Retoucher</a>
             <a href="index.php?action=adminLog&name=deleteconfirm&id=<?= $chapter['id'] ?>" class="delete_link">Supprimer</a>
         </p>
+
         <?php $admin_content = ob_get_clean();
 
         require('view/back/adminTemplateView.php');
@@ -193,6 +195,73 @@ function setAdminHome($page)
             <span>&emsp;</span>
             <a href="index.php?action=adminLog&name=chapters">Non</a>
         </p>
+
+        <?php $admin_content = ob_get_clean();
+
+        require('view/back/adminTemplateView.php');
+    }
+
+    elseif ($page == "infos")
+    {
+        $adminManager = new AdminManager();
+
+        $logAddress = $adminManager->getLogAddress(1);
+
+        ob_start(); ?>
+
+        <h1>Modification des données du compte</h1><br>
+
+        <div>
+            <p>Votre adresse de connexion est la suivante : <u><?= $logAddress['mail'] ?></u></p>
+            <p><a href="index.php?action=adminLog&name=address" id="change_address_link">Modifier</a></p><br>
+            <p>Pour changer votre mot de passe, c'est par ici :</p>
+            <p><a href="index.php?action=adminLog&name=pwd">Changement du mot de passe</a></p>
+        </div>
+
+        <?php $admin_content = ob_get_clean();
+
+        require('view/back/adminTemplateView.php');
+    }
+
+    elseif ($page == "address")
+    {
+        ob_start(); ?>
+
+        <h1>Modification des données du compte</h1><br>
+
+        <div>
+            <form method="post" action="index.php?action=updateAddress&id=1" id="change_address_form">
+                <label for="new_log_address">Nouvelle adresse :</label><br>
+                <input type="text" name="new_log_address" id="new_log_address"></input><br><br>
+                <input type="submit" value="Enregistrer" id="new_mail_submit">
+                <a href="index.php?action=adminLog&name=infos">Annuler</a>
+            </form>
+        </div>
+
+        <?php $admin_content = ob_get_clean();
+
+        require('view/back/adminTemplateView.php');
+    }
+
+    elseif ($page == "pwd")
+    {
+        ob_start(); ?>
+
+        <h1>Modification des données du compte</h1><br>
+
+        <div>
+            <form method="post" action="index.php?action=updatePwd&id=1" id="change_pwd_form">
+                <label for="old_log_pwd">Ancien mot de passe :</label><br>
+                <input type="password" name="old_log_pwd" id="old_log_pwd" required></input><br><br>
+                <label for="new_log_pwd">Nouveau mot de passe :</label><br>
+                <input type="password" name="new_log_pwd" id="new_log_pwd" required></input><br><br>
+                <label for="new_log_pwd_confirm">Nouveau mot de passe (confirmation) :</label><br>
+                <input type="password" name="new_log_pwd_confirm" id="new_log_pwd_confirm" required></input><br><br>
+                <input type="submit" value="Enregistrer" id="new_pwd_submit">
+                <a href="index.php?action=adminLog&name=infos">Annuler</a>
+            </form>
+        </div>
+
         <?php $admin_content = ob_get_clean();
 
         require('view/back/adminTemplateView.php');
