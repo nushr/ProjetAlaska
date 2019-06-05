@@ -25,13 +25,12 @@ function sendContactMail()
         $mail->Port       = 587;                                    // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('from@example.com', 'Mailer');
+        $mail->setFrom('admin@nusr.me', 'Blog Alaska');       // admin
         $mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
-        $mail->addReplyTo('info@example.com', 'Information');
+        $mail->addReplyTo('info@example.com', 'Information');  // Reply to message sender
 
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
-        $mail->Subject = 'Here is the subject';
         $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 

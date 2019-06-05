@@ -1,0 +1,74 @@
+
+@media only screen and (max-width:700px) {
+
+    #contact_bloc {
+        display:block;
+    }
+
+    #send_mail_form {
+        width:100%;
+    }
+
+    #send_mail_form input:last-child {
+        width:auto;
+    }
+
+    #connexion_form input {
+        width:100%;
+    }
+
+    footer div {
+        justify-content: space-between;
+    }
+
+    #comment_form div:first-child input, #comment_form textarea {
+        width:100%;
+    }
+
+    #new_log_address, #new_log_pwd, #new_log_pwd_confirm, #old_log_pwd {
+        width:100%;
+    }
+
+    menu {
+        text-align: center;
+    }
+
+    menu div {
+        display:block;
+    }
+
+}
+
+
+
+@media only screen and (max-width:600px) {
+
+    #home_widgets {
+        display:block;
+    }
+
+    #home_widgets > div {
+        margin-bottom:20px;
+        width:100%;
+    }
+
+}
+
+
+
+@media only screen and (max-width:450px) {
+
+    header img {
+        width:80%;
+        margin-left:10%;
+    }
+
+    #home_widgets h1, #last_posts h1 {
+        font-size:1.4em;
+    }
+
+    footer div {
+        display:block;
+    }
+
+}

@@ -80,7 +80,7 @@ function templateView($page)
                 </div>
                 <div id="send_mail_form">
                     <p><strong>Envoi automatisé d'un mél</strong></p>
-                    <form method="post" action="#">
+                    <form method="post" action="index.php?action=sendContactMail">
                         <label for="sender_name">Nom :</label><br>
                         <input type="text" id="sender_name" name="sender_name" required></input><br>
                         <label for="sender_address">Adresse mail : </label><br>
@@ -257,7 +257,6 @@ function templateView($page)
         }
 
         require('view/front/templateView.php');
-
     }
 
 }

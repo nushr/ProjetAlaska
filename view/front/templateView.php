@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
         <link rel="stylesheet" href="public/styles/styles.css">
+        <link rel="stylesheet" href="public/styles/media.css">
 
         <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">

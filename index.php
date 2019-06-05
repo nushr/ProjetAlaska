@@ -8,6 +8,7 @@ require('controller/front/postController.php');
 require('controller/front/templateController.php');
 require('controller/back/adminController.php');
 require('controller/back/adminTemplateController.php');
+require('controller/back/mailController.php');
 
 
 try {

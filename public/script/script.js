@@ -23,7 +23,7 @@ if (window.location.href.endsWith("comments")) {
 }
 
 
-///////////////////s///////////////////
+///////////////////////////////////////
 // Displays / hides add comment form //
 ///////////////////////////////////////
 var showAddForm = document.getElementById('add_comment');
