@@ -128,6 +128,11 @@ try {
             updatePwd($_POST['old_log_pwd'], $_POST['new_log_pwd'], $_POST['new_log_pwd_confirm'], $_GET['id']);
         }
 
+        elseif ($_GET['action'] == "sendContactMail")
+        {
+            sendContactMail();
+        }
+
         else
         {
             throw new Exception('Cette page n\'existe pas');
