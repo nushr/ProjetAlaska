@@ -102,13 +102,23 @@ function updatePwd($oldPwd, $newPwd, $newPwdConfirm, $id)
 }
 
 // when password lost : creates new one + updates db. Sends mail to user via index
-function generateTempPwd($mailtoAdress)
+function generateTempPwd($mailtoAddress)
 {
     $randomInt = rand(1000000, 999999999);
     $tempPwd = hash('md5', $randomInt);
 
     $adminManager = new AdminManager();
-    $adminManager->updateTempPwd($tempPwd, $mailtoAdress);
 
-    return $randomInt;
+    $forterocheMail = $adminManager->getForterocheMail();
+
+    if ($forterocheMail[0] == $mailtoAddress)
+    {
+        $adminManager->updateTempPwd($tempPwd, $mailtoAddress);
+        return $randomInt;
+    }
+
+    else
+    { // if adress is not in db, prevents sending mail
+        throw new Exception ('Votre adresse est inconnue dans la base.<br>Cliquez pour revenir à la <a href="index.php?action=page&name=connexion">page de connexion</a>');
+    }
 }

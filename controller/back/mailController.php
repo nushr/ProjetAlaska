@@ -27,16 +27,16 @@ function sendContactMail($senderName, $senderAddress, $senderText)
         $mail->Host       = 'smtp.ionos.com';                           // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                       // Enable SMTP authentication
         $mail->Username   = 'admin@nusr.me';                            // SMTP username
-        $mail->Password   = 'pHpoZk#x1000';                             // SMTP password
+        $mail->Password   = 'PhPOzK#x0001';                             // SMTP password
         $mail->SMTPSecure = 'tls';                                      // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 25;                                         // TCP port to connect to
 
         //Recipients
-        $mail->setFrom($senderAddress, $senderName);       // admin
-        $mail->addAddress($forterocheMail[0], 'Jean Forteroche');     // Add a recipient
+        $mail->setFrom($senderAddress, $senderName);                    // Sender
+        $mail->addAddress($forterocheMail[0], 'Jean Forteroche');       // Recipient
 
         // Content
-        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->isHTML(true);                                             // Set email format to HTML
         $mail->Subject = '[Blog Alaska] Message d\'un visiteur';
         $mail->Body    = $senderText;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
@@ -68,16 +68,16 @@ function sendTempPwd($mailtoAddress, $randomInt)
         $mail->Host       = 'smtp.ionos.com';                           // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                       // Enable SMTP authentication
         $mail->Username   = 'admin@nusr.me';                            // SMTP username
-        $mail->Password   = 'pHpoZk#x1000';                             // SMTP password
+        $mail->Password   = 'PhPOzK#x0001';                             // SMTP password
         $mail->SMTPSecure = 'tls';                                      // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 25;                                         // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('admin@nusr.me', '[Blog Alaska]');       // admin
-        $mail->addAddress($mailtoAddress, $mailtoAddress);     // Add a recipient
+        $mail->setFrom('admin@nusr.me', '[Blog Alaska]');               // admin
+        $mail->addAddress($mailtoAddress, $mailtoAddress);              // Add a recipient
 
         // Content
-        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->isHTML(true);                                            // Set email format to HTML
         $mail->Subject = '[Blog Alaska] Votre nouveau mot de passe';
         $mail->Body    = 'Bonjour, voici votre mot de passe provisoire : '. $randomInt . '<br>Pour des raisons de s&eacute;curit&eacute;, merci de bien vouloir le changer lors de votre prochaine connexion.<br>Cordialement,<br>l\'administration du site';
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
