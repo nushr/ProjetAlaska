@@ -21,6 +21,7 @@ function backConnexion($id, $pwd)
     }
 }
 
+// allowed when logged in functions
 function newPost($title, $content)
 {
     $adminManager = new AdminManager();
@@ -100,6 +101,7 @@ function updatePwd($oldPwd, $newPwd, $newPwdConfirm, $id)
     }
 }
 
+// when password lost : creates new one + updates db. Sends mail to user via index
 function generateTempPwd($mailtoAdress)
 {
     $randomInt = rand(1000000, 999999999);

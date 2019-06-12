@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<!-- For single post display === reading mode -->
 
 <html lang="fr">
 
@@ -29,13 +30,12 @@
             <hr>
             <div>
                 <?php
-                // $nbPosts = postsNb(); INUTILE ?
-                $lastPost = getLastPostId();
-                $nextPost = getNextPostId($_GET['id']);
-                $prevPost = getPrevPostId($_GET['id']);
+                $lastPost = getLastPostId(); // to know which post is last (navigation display purpose)
+                $nextPost = getNextPostId($_GET['id']); // to reach for next post id in database
+                $prevPost = getPrevPostId($_GET['id']); // to reach for previous post id in databse
 
                 if ($_GET['id']>1)
-                {
+                { // menu elements display according to post position in line
                     ?><p><a href="index.php?action=post&amp;id=<?= $prevPost[0] ?>">Chapitre précédent</a></p><?php
                 }
                 else {
@@ -63,7 +63,7 @@
             <p><img alt="signature" src="public/assets/signature.png"></p>
             <br>
 
-            <?php
+            <?php // checks whether there are comments for accurate display
             if ($nbComments['COUNT(ID)'] == 0)
             { ?>
                 <h3 id="see_comments" class="no_comments">Pas de commentaires</h3><br>
@@ -74,7 +74,7 @@
             <?php }
             ?>
             <div id="comments_block">
-                <?php
+                <?php // comments display formatting
                 while ($comment = $comments->fetch())
                 {
                     $date_creation_fr = DateTime::createFromFormat('Y-m-d', $comment['date_creation']);

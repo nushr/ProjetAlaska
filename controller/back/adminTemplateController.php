@@ -4,7 +4,7 @@ require_once('model/back/AdminManager.php');
 
 
 function setAdminHome($page)
-{
+{ // switch for admin pages content from URL "page" parameter
     if ($page == "logout")
     {
         session_unset();

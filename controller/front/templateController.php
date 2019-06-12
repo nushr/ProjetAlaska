@@ -4,7 +4,7 @@ require_once('model/front/PostManager.php');
 require_once('model/front/CommentManager.php');
 
 
-function chaptersList()
+function chaptersList() // for homepage excerpts
 {
     $postManager = new PostManager();
 
@@ -12,7 +12,7 @@ function chaptersList()
 }
 
 function templateView($page)
-{
+{ // static pages contents and titles here cf. template
 
     if ($page == "chapters")
     {

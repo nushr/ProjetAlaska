@@ -1,4 +1,6 @@
 <!DOCTYPE HTML>
+<!-- Backend pages only -->
+<!-- Template here. 1 variable : $admin_content -->
 
 <html lang="fr">
 

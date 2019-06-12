@@ -2,10 +2,13 @@
 
 require_once('model/Manager.php');
 
+
 class AdminManager extends Manager
 {
 
-    public function checkId($id)
+    // !! For back office below
+
+    public function checkId($id) // when connecting
     {
         $db = $this->dbConnect();
 
@@ -69,7 +72,7 @@ class AdminManager extends Manager
         $deletecomments->execute(array($id));
     }
 
-    public function listOutrageousComments()
+    public function listOutrageousComments() // retrieves list of signaled comments
     {
         $db = $this->dbConnect();
 
@@ -79,7 +82,7 @@ class AdminManager extends Manager
         return $comments;
     }
 
-    public function getChapterNb($id)
+    public function getChapterNb($id) // gives post title from id
     {
         $db = $this->dbConnect();
 
@@ -91,7 +94,7 @@ class AdminManager extends Manager
         return $chapterNb;
     }
 
-    public function allowComment($id)
+    public function allowComment($id) // removes signalled bool
     {
         $db = $this->dbConnect();
 
@@ -107,7 +110,7 @@ class AdminManager extends Manager
         $hidden->execute(array($id));
     }
 
-    public function countSignaledComments()
+    public function countSignaledComments() // for admin homepage
     {
         $db = $this->dbConnect();
 
@@ -118,7 +121,7 @@ class AdminManager extends Manager
         return $result;
     }
 
-    public function getLogAddress($id)
+    public function getLogAddress($id) // displays current registered address for user
     {
         $db = $this->dbConnect();
 
@@ -130,7 +133,7 @@ class AdminManager extends Manager
         return $address;
     }
 
-    public function changeDbAddress($address, $id)
+    public function changeDbAddress($address, $id) // changes mail id for user
     {
         $db = $this->dbConnect();
 
@@ -138,7 +141,7 @@ class AdminManager extends Manager
         $newAddress->execute(array($address, $id));
     }
 
-    public function checkPwd($id)
+    public function checkPwd($id) // checks old password for changing
     {
         $db = $this->dbConnect();
 
@@ -150,7 +153,7 @@ class AdminManager extends Manager
         return $dbPwd;
     }
 
-    public function updatePwd($hashedPwd, $id)
+    public function updatePwd($hashedPwd, $id) // updates password in db
     {
         $db = $this->dbConnect();
 
@@ -158,7 +161,7 @@ class AdminManager extends Manager
         $newPassword->execute(array($hashedPwd, $id));
     }
 
-    public function getForterocheMail()
+    public function getForterocheMail() // for sending users messages sent from contact form
     {
         $db = $this->dbConnect();
 
@@ -170,7 +173,7 @@ class AdminManager extends Manager
         return $forterocheMail;
     }
 
-    public function updateTempPwd($tempPwd, $mailtoAdress)
+    public function updateTempPwd($tempPwd, $mailtoAdress) // update db with new temp password when former one said lost
     {
         $db = $this->dbConnect();
 

@@ -35,7 +35,7 @@ header h1, header h3 {
     padding:15px;
 }
 
-header img {
+header img { /* homepage only */
     width:50%;
     margin-left:25%;
 }
@@ -77,9 +77,10 @@ h4 {
     flex-wrap: wrap;
 }
 
-#home_widgets > div {
+#home_widgets > div { /* 4 blocks */
     margin-bottom:20px;
     width:50%;
+    padding : 0 20px;
 }
 
 #last_comment, #about_author {
@@ -110,11 +111,7 @@ h4 {
 #home_widgets h1, #last_posts h1 {
     color:#c5b39b;
     font-family: 'Homemade Apple', cursive;
-    font-size:1.7em;
-}
-
-#home_widgets > div {
-    padding : 0 20px;
+    font-size:1.7em; /* increased */
 }
 
 
@@ -122,7 +119,7 @@ h4 {
 /* S * I * N * G * L * E * * * P * O * S * T * S */
 /* * * * * * * * * * * * * * * * * * * * * * * * */
 
-.nav_disabled { /* navigation when reading */
+.nav_disabled { /* navigation on reading mode */
     visibility:hidden;
 }
 
@@ -132,7 +129,7 @@ h4 {
     text-align:justify;
 }
 
-.no_comments {
+.no_comments { /* no mention about reading comments when there are none */
     display:none;
 }
 
@@ -178,7 +175,7 @@ h4 {
 /* M * I * S * C * * * P * A * G * E * S */
 /* * * * * * * * * * * * * * * * * * * * */
 
-#else_visuel {
+#else_visuel { /* for template header img */
     text-align: center;
 }
 
@@ -301,7 +298,7 @@ footer p a:hover {
     margin-left: 30px;
 }
 
-#new_chapter_submit, #modified_chapter_submit, #new_mail_submit, #new_pwd_submit { /* Changes submit buttons style */
+#new_chapter_submit, #modified_chapter_submit, #new_mail_submit, #new_pwd_submit { /* changes submit buttons style */
     padding:0;
     background:none;
     border:0 none;

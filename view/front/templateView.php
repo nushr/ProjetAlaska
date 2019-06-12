@@ -1,4 +1,6 @@
 <!DOCTYPE HTML>
+<!-- For all front pages other than homepage & single post display -->
+<!-- Note : Template. Variables : $title + $content -->
 
 <html lang="fr">
 

@@ -1,7 +1,7 @@
 <?php
 
 $sess_id = session_id();
-if (empty ($sess_id)) session_start();
+if (empty ($sess_id)) session_start(); // Starts new session if currently none
 
 require('controller/front/homeController.php');
 require('controller/front/postController.php');
@@ -11,20 +11,20 @@ require('controller/back/adminTemplateController.php');
 require('controller/back/mailController.php');
 
 
-try {
+try
+{
 
     if (isset($_GET['action']))
-    {
+    { // Calls controllers functions from URL "action" parameter
 
         if ($_GET['action'] == 'post')
-        {
+        { // Displays post from "id" parameter
             if (isset($_GET['id']) && $_GET['id'] > 0)
             {
                 post();
             }
             else
             {
-                // Error message sent to catch
                 throw new Exception('Mince ! Aucun chapitre ici !');
             }
         }
@@ -60,8 +60,8 @@ try {
             }
         }
 
-        elseif ($_GET['action'] == 'page') // other than home or post reading
-        {
+        elseif ($_GET['action'] == 'page')
+        { // For pages other than home or post
             if (isset ($_GET['name']))
             {
                 templateView($_GET['name']);
@@ -71,21 +71,25 @@ try {
             }
         }
 
+        elseif ($_GET['action'] == "sendContactMail")
+        { // When user sends mail via contact form
+            sendContactMail($_POST['sender_name'], $_POST['sender_address'], $_POST['sender_text']);
+        }
+
         // ! back office below
         elseif ($_GET['action'] == 'connexion')
         {
             backConnexion($_POST['id'], $_POST['pwd']);
         }
 
-        elseif ($_GET['action'] == 'adminLog') // towards admin pages
-        {
+        elseif ($_GET['action'] == 'adminLog')
+        { // towards admin pages
             if (!isset($_SESSION['logged']))
-            {
+            { // blocks when not logged in
                 throw new Exception("Vous n'êtes pas identifié");
             }
-
             if (isset ($_GET['name']))
-            {
+            { // displays the right page from "name" parameter
                 setAdminHome($_GET['name']);
             }
             else {
@@ -128,13 +132,8 @@ try {
             updatePwd($_POST['old_log_pwd'], $_POST['new_log_pwd'], $_POST['new_log_pwd_confirm'], $_GET['id']);
         }
 
-        elseif ($_GET['action'] == "sendContactMail")
-        {
-            sendContactMail($_POST['sender_name'], $_POST['sender_address'], $_POST['sender_text']);
-        }
-
         elseif ($_GET['action'] == "forgotPwd")
-        {
+        { // when asking for a new password at connexion page
             $randomInt = generateTempPwd($_POST['mailto']);
             sendTempPwd($_POST['mailto'], $randomInt);
         }
@@ -146,12 +145,12 @@ try {
 
     }
 
-    else { // Si pas d'action précisée dans l'URL : revient à la page d'accueil avec liste des posts
+    else { // Default : lists posts for homepage if no parameter in URL
         listPosts();
     }
 }
 
-// En cas de soucis avec ce qui est entré dans l'URL
+// General error view throughout website
 catch(Exception $e)
 {
     $title="Erreur d'aiguillage";

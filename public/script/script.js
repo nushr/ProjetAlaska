@@ -5,7 +5,7 @@ var showComments = document.getElementById('see_comments');
 var commentsBlock = document.getElementById('comments_block');
 var showInitial = showComments.textContent;
 
-// Displays / hides comments on click
+// Toggle on click from post view
 showComments.addEventListener('click', function() {
     if (showComments.textContent != "Masquer les commentaires") {
         commentsBlock.style.display = "block";

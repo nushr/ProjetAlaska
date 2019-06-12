@@ -10,6 +10,7 @@ require ('PHPMailer/src/SMTP.php');
 require_once('model/back/AdminManager.php');
 
 
+// Sends mail from contact form
 function sendContactMail($senderName, $senderAddress, $senderText)
 {
     // Instantiation and passing `true` enables exceptions
@@ -22,13 +23,13 @@ function sendContactMail($senderName, $senderAddress, $senderText)
     {
         //Server settings
         $mail->SMTPDebug = false;                                       // Enable verbose debug output
-        $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = 'smtp.ionos.com';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'admin@nusr.me';                     // SMTP username
-        $mail->Password   = 'pHpoZk#x1000';                               // SMTP password
-        $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
-        $mail->Port       = 25;                                    // TCP port to connect to
+        $mail->isSMTP();                                                // Set mailer to use SMTP
+        $mail->Host       = 'smtp.ionos.com';                           // Specify main and backup SMTP servers
+        $mail->SMTPAuth   = true;                                       // Enable SMTP authentication
+        $mail->Username   = 'admin@nusr.me';                            // SMTP username
+        $mail->Password   = 'pHpoZk#x1000';                             // SMTP password
+        $mail->SMTPSecure = 'tls';                                      // Enable TLS encryption, `ssl` also accepted
+        $mail->Port       = 25;                                         // TCP port to connect to
 
         //Recipients
         $mail->setFrom($senderAddress, $senderName);       // admin
@@ -53,6 +54,7 @@ function sendContactMail($senderName, $senderAddress, $senderText)
 
 }
 
+// Sends mail for new password when former one forgotten
 function sendTempPwd($mailtoAddress, $randomInt)
 {
     // Instantiation and passing `true` enables exceptions

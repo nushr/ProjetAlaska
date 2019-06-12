@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<!-- For homepage -->
 
 <html lang="fr">
 
@@ -39,6 +40,7 @@
         </menu>
 
         <div id="home_widgets">
+            <!-- 1 -->
             <div id="last_comment">
                 <?php $lastComment = lastComment() ?>
                 <h1>Dernier commentaire publié</h1>
@@ -46,15 +48,18 @@
                 <?php $last_comment_date_fr = DateTime::createFromFormat('Y-m-d', $lastComment['date_creation']);?>
                 <p>Publié par <b><?= $lastComment['auteur'] ?></b>, le <?= $last_comment_date_fr->format('d/m/Y') ?></p>
             </div>
+            <!-- 2 -->
             <div id="about_author">
                 <h1>Aperçu de l'auteur</h1>
                 <p>Jean est né un jour, puis il a grandi.</p><p>Depuis, il est devenu écrivain et pilote de Formule 1.</p><p>N'est-ce pas merveilleux ?<a href="index.php?action=page&amp;name=author"> Accéder à la biographie de l'auteur</a></p>
             </div>
+            <!-- 3 -->
             <div id="press_comments">
                 <h1>La presse en parle</h1>
                 <p id="press_review">Au vu du nouveau projet de Jean Forteroche, le critique peut enfin penser : "Voici un projet engagé, qui saura remettre les pendules à l'heure." Et ainsi de se dire : merci, Jean Forteroche</p>
                 <p>Alain Forteroche, la France des Livres (Mai 2019) <a href="#">Lien vers l'archive</a></p>
             </div>
+            <!-- 4 -->
             <div id="bonus">
                 <h1>Le coin des goodies</h1>
                 <a href="index.php?action=page&amp;name=ours#bear_bloc"><p>-> Photographie d'un ours (exclusif !)</p></a>
@@ -78,7 +83,7 @@
                     <p>
                         <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
                         <img id="signature" alt="signature" src="public/assets/signature.png">
-                        <?php // Pour affichage "pas de commentaires" ou "1 commentaire" ou "x commentaires"
+                        <?php // Retrieves number of comments for direct link from homepage
                             $nbComments = commentsNb($data['id']);
                             if ($nbComments['COUNT(ID)'] == 0)
                             { ?>

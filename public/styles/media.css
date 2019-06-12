@@ -1,4 +1,6 @@
-
+/* 1st breakpoint :
+- full-width form inputs
+- piled up menu ul */
 @media only screen and (max-width:700px) {
 
     #contact_bloc {
@@ -40,7 +42,8 @@
 }
 
 
-
+/* 2nd breakpoint :
+- home widgets full-width */
 @media only screen and (max-width:600px) {
 
     #home_widgets {
@@ -55,7 +58,10 @@
 }
 
 
-
+/* 3rd breakpoint :
+- images width
+- h1 font size
+- piled up footer ul */
 @media only screen and (max-width:450px) {
 
     header img {

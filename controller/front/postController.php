@@ -4,7 +4,7 @@ require_once('model/front/PostManager.php');
 require_once('model/front/CommentManager.php');
 
 
-function postsNb()
+function postsNb() // counts posts
 {
     $postManager = new PostManager();
 
@@ -32,7 +32,7 @@ function post() // pick & display
     }
 }
 
-function getLastPostId()
+function getLastPostId() // for navigation menu on post reading
 {
     $postManager = new PostManager();
 
@@ -41,7 +41,7 @@ function getLastPostId()
     return $lastPost;
 }
 
-function getNextPostId($currentId)
+function getNextPostId($currentId) // for navigation menu on post reading
 {
     $postManager = new PostManager();
 
@@ -50,7 +50,7 @@ function getNextPostId($currentId)
     return $nextPost;
 }
 
-function getPrevPostId($currentId)
+function getPrevPostId($currentId) // for navigation menu on post reading
 {
     $postManager = new PostManager();
 
@@ -81,7 +81,7 @@ function addComment($postId, $author, $message)
 
     $affectedLines = $commentManager->postComment($postId, $author, $message);
 
-    if ($affectedLines === false)
+    if ($affectedLines === false) // checks if db insert worked
     {
         throw new Exception('Error in adding comment, sorry');
     }

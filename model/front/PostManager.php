@@ -2,10 +2,11 @@
 
 require_once('model/Manager.php');
 
+
 class PostManager extends Manager
 {
 
-    public function getPosts()
+    public function getPosts() // retrieves 3 last posts for homepage excerpts
     {
         $db = $this->dbConnect();
 
@@ -16,7 +17,7 @@ class PostManager extends Manager
         return $req;
     }
 
-    public function getPost($postId)
+    public function getPost($postId) // gets 1 post from id for reading mode
     {
         $db = $this->dbConnect();
 
@@ -29,7 +30,7 @@ class PostManager extends Manager
         return $post;
     }
 
-    public function listChapters()
+    public function listChapters() // for chapters page
     {
         $db = $this->dbConnect();
 
@@ -40,7 +41,7 @@ class PostManager extends Manager
         return $req;
     }
 
-    public function countPosts()
+    public function countPosts() // for accurate navigation in reading post pages (1/4)
     {
         $db = $this->dbConnect();
 
@@ -51,7 +52,7 @@ class PostManager extends Manager
         return $result;
     }
 
-    public function getLastPostId()
+    public function getLastPostId() // for accurate navigation in reading post pages (2/4)
     {
         $db = $this->dbConnect();
 
@@ -64,7 +65,7 @@ class PostManager extends Manager
         return $lastPost;
     }
 
-    public function getNextPostId($currentId)
+    public function getNextPostId($currentId) // for accurate navigation in reading post pages (3/4)
     {
         $db = $this->dbConnect();
 
@@ -77,7 +78,7 @@ class PostManager extends Manager
         return $nextPost;
     }
 
-    public function getPrevPostId($currentId)
+    public function getPrevPostId($currentId) // for accurate navigation in reading post pages (4/4)
     {
         $db = $this->dbConnect();
 

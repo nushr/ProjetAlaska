@@ -2,10 +2,11 @@
 
 require_once('model/Manager.php');
 
+
 class CommentManager extends Manager
 {
 
-    public function getComments($postId)
+    public function getComments($postId) // for single post pages
     {
         $db = $this->dbConnect();
 
@@ -50,7 +51,7 @@ class CommentManager extends Manager
         return $checker;
     }
 
-    public function countComments($postId)
+    public function countComments($postId) // for hint on post reading pages
     {
         $db = $this->dBConnect();
 
