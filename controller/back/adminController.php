@@ -98,5 +98,15 @@ function updatePwd($oldPwd, $newPwd, $newPwdConfirm, $id)
     {
         throw new Exception('Vous n\'avez pas renseigné le bon ancien mot de passe<br><a href="index.php?action=adminLog&name=pwd">Ré-essayer</a><br>');
     }
+}
 
+function generateTempPwd($mailtoAdress)
+{
+    $randomInt = rand(1000000, 999999999);
+    $tempPwd = hash('md5', $randomInt);
+
+    $adminManager = new AdminManager();
+    $adminManager->updateTempPwd($tempPwd, $mailtoAdress);
+
+    return $randomInt;
 }

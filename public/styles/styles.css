@@ -200,13 +200,13 @@ h4 {
     float:right;
 }
 
-#connexion_form input {
+#connexion_form input, #pwd_recovery_form input {
     width:40%;
     padding:6px;
     margin:2px 0;
 }
 
-#connexion_form input:last-child {
+#connexion_form input:last-child, #pwd_recovery_form input:last-child {
     width:auto;
 }
 

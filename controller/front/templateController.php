@@ -246,7 +246,25 @@ function templateView($page)
                 <input type="submit" value="Soumettre">
             </form>
 
-            <br><a href="#">Mot de passe oublié ?</a>
+            <br><a href="index.php?action=page&name=newPassword">Mot de passe oublié ?</a>
+
+            <?php $content = ob_get_clean();
+        }
+
+        elseif ($page == "newPassword")
+        {
+            $title="Billet simple pour l'Alaska : demande d\'un nouveau mot de passe"; ?>
+
+            <?php ob_start(); ?>
+
+            <h1>Demande d'un nouveau mot de passe</h1>
+            <br>
+
+            <form id="pwd_recovery_form" method="post" action="index.php?action=forgotPwd">
+                <label for="mailto">Adresse utilisée pour la connexion :</label><br>
+                <input type="text" name="mailto" id="mailto" required><br>
+                <input type="submit" value="Valider">
+            </form>
 
             <?php $content = ob_get_clean();
         }

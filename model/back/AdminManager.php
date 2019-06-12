@@ -170,4 +170,12 @@ class AdminManager extends Manager
         return $forterocheMail;
     }
 
+    public function updateTempPwd($tempPwd, $mailtoAdress)
+    {
+        $db = $this->dbConnect();
+
+        $tempPassword = $db->prepare('UPDATE utilisateurs SET pwd = ? WHERE mail = ?');
+        $mailChecker = $tempPassword->execute(array($tempPwd, $mailtoAdress));
+    }
+
 }

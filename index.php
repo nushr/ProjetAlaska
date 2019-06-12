@@ -133,6 +133,12 @@ try {
             sendContactMail($_POST['sender_name'], $_POST['sender_address'], $_POST['sender_text']);
         }
 
+        elseif ($_GET['action'] == "forgotPwd")
+        {
+            $randomInt = generateTempPwd($_POST['mailto']);
+            sendTempPwd($_POST['mailto'], $randomInt);
+        }
+
         else
         {
             throw new Exception('Cette page n\'existe pas');
