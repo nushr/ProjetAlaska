@@ -86,7 +86,7 @@ function templateView($page)
                         <label for="sender_address">Adresse mail : </label><br>
                         <input type="text" id="sender_address" name="sender_address" required></input><br>
                         <label for="sender_text">Message :</label><br>
-                        <textarea for="sender_text" id="sender_name" name="sender_name" required></textarea><br>
+                        <textarea id="sender_text" name="sender_text" required></textarea><br>
                         <input type="submit" value="Envoyer">
                     </form>
                 </div>

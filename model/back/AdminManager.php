@@ -158,4 +158,16 @@ class AdminManager extends Manager
         $newPassword->execute(array($hashedPwd, $id));
     }
 
+    public function getForterocheMail()
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('SELECT mail FROM utilisateurs WHERE id = 1');
+        $req->execute();
+
+        $forterocheMail = $req->fetch();
+
+        return $forterocheMail;
+    }
+
 }

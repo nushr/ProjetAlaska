@@ -130,7 +130,7 @@ try {
 
         elseif ($_GET['action'] == "sendContactMail")
         {
-            sendContactMail();
+            sendContactMail($_POST['sender_name'], $_POST['sender_address'], $_POST['sender_text']);
         }
 
         else
