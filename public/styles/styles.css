@@ -195,6 +195,7 @@ h4 {
 #author_pic {
     width:20%;
     float:right;
+    max-width:275px;
 }
 
 #connexion_form input, #pwd_recovery_form input {
