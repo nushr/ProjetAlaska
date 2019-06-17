@@ -51,7 +51,7 @@
             <!-- 2 -->
             <div id="about_author">
                 <h1>Aperçu de l'auteur</h1>
-                <p>Jean est né un jour, puis il a grandi.</p><p>Depuis, il est devenu écrivain et pilote de Formule 1.</p><p>N'est-ce pas merveilleux ?<a href="index.php?action=page&amp;name=author"> Accéder à la biographie de l'auteur</a></p>
+                <p>Jean est né un jour, puis il a grandi.</p><p>Depuis, il est devenu écrivain et multiplie les innovations novatrices et audacieuses.</p><p>Vous voulez en savoir plus ?<a href="index.php?action=page&amp;name=author"> Accéder à la biographie de l'auteur</a></p>
             </div>
             <!-- 3 -->
             <div id="press_comments">
