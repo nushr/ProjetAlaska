@@ -26,14 +26,14 @@ function sendContactMail($senderName, $senderAddress, $senderText)
         $mail->isSMTP();                                                // Set mailer to use SMTP
         $mail->Host       = 'smtp.ionos.com';                           // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                       // Enable SMTP authentication
-        $mail->Username   = 'admin@nusr.me';                            // SMTP username
-        $mail->Password   = 'PhPOzK#x0001';                             // SMTP password
+        $mail->Username   = '*************';                            // SMTP username
+        $mail->Password   = '*************';                            // SMTP password
         $mail->SMTPSecure = 'tls';                                      // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 25;                                         // TCP port to connect to
 
         //Recipients
-        $mail->setFrom($senderAddress, $senderName);                    // Sender
-        $mail->addAddress($forterocheMail[0], 'Jean Forteroche');       // Recipient
+        $mail->setFrom($senderAddress, $senderName);                    // Sender as entered in form
+        $mail->addAddress($forterocheMail[0], 'Jean Forteroche');       // current Forteroche mail registered in db
 
         // Content
         $mail->isHTML(true);                                             // Set email format to HTML
@@ -67,14 +67,14 @@ function sendTempPwd($mailtoAddress, $randomInt)
         $mail->isSMTP();                                                // Set mailer to use SMTP
         $mail->Host       = 'smtp.ionos.com';                           // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                       // Enable SMTP authentication
-        $mail->Username   = 'admin@nusr.me';                            // SMTP username
-        $mail->Password   = 'PhPOzK#x0001';                             // SMTP password
+        $mail->Username   = '*************';                            // SMTP username
+        $mail->Password   = '*************';                            // SMTP password
         $mail->SMTPSecure = 'tls';                                      // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 25;                                         // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('admin@nusr.me', '[Blog Alaska]');               // admin
-        $mail->addAddress($mailtoAddress, $mailtoAddress);              // Add a recipient
+        $mail->setFrom('blog_admin@nusr.me', '[Blog Alaska]');          // admin address for sending new pw
+        $mail->addAddress($mailtoAddress, $mailtoAddress);              // Add a recipient : current Forteroche mail
 
         // Content
         $mail->isHTML(true);                                            // Set email format to HTML
