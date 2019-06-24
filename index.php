@@ -39,7 +39,7 @@ try
                 }
                 else
                 {
-                    throw new Exception('Erreur : tous les champs ne sont pas remplis');
+                    throw new Exception('Tous les champs ne sont pas remplis');
                 }
             }
             else

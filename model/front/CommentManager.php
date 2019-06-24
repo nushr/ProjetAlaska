@@ -35,8 +35,10 @@ class CommentManager extends Manager
 
         $dateCrea = date('Y-m-d');
 
+        $htmlMessage = htmlspecialchars($message);
+
         $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu) VALUES (?, ?, ?, ?)');
-        $affectedLines = $comment->execute(array($postId, $author, $dateCrea, $message));
+        $affectedLines = $comment->execute(array($postId, $author, $dateCrea, $htmlMessage));
 
         return $affectedLines;
     }
