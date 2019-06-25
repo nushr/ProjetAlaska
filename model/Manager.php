@@ -9,7 +9,7 @@ class Manager
         $host_name = 'db5000099047.hosting-data.io';
         $database = 'dbs93587';
         $user_name = 'dbu103728';
-        $password = 'aBc99!?++kL';
+        $password = '*************';
         $db = null;
 
         try
