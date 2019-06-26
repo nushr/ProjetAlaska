@@ -71,7 +71,7 @@ function templateView($page)
             $title="Billet simple pour l'Alaska : recette de la Bombe Alaska"; ?>
 
             <?php ob_start();
-                require('view/front/pages/novel.html'); ?>
+                require('view/front/pages/recipe.html'); ?>
             <?php $content = ob_get_clean();
         }
 
