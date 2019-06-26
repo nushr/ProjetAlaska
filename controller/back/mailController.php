@@ -49,7 +49,7 @@ function sendContactMail($senderName, $senderAddress, $senderText)
 
     catch (Exception $e)
     {
-        echo "Votre message n'a pas pu être envoyé. Type d'erreur: {$mail->ErrorInfo}";
+        echo "Votre message n'a pas pu être envoyé. Type d'erreur: {$mail->ErrorInfo}.<br>Retour à la <a href='index.php'>page d'accueil</a>";
     }
 
 }

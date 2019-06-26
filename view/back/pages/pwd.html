@@ -1,0 +1,14 @@
+<h1>Modification des données du compte</h1><br>
+
+<div>
+    <form method="post" action="index.php?action=updatePwd&id=1" id="change_pwd_form">
+        <label for="old_log_pwd">Ancien mot de passe :</label><br>
+        <input type="password" name="old_log_pwd" id="old_log_pwd" required></input><br><br>
+        <label for="new_log_pwd">Nouveau mot de passe :</label><br>
+        <input type="password" name="new_log_pwd" id="new_log_pwd" required></input><br><br>
+        <label for="new_log_pwd_confirm">Nouveau mot de passe (confirmation) :</label><br>
+        <input type="password" name="new_log_pwd_confirm" id="new_log_pwd_confirm" required></input><br><br>
+        <input type="submit" value="Enregistrer" id="new_pwd_submit">
+        <a href="index.php?action=adminLog&name=infos">Annuler</a>
+    </form>
+</div>

@@ -31,11 +31,11 @@
         width:100%;
     }
 
-    menu {
+    #menu {
         text-align: center;
     }
 
-    menu div {
+    #menu menu {
         display:block;
     }
 

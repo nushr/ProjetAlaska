@@ -28,17 +28,17 @@
 
         <div id="else_visuel"><a href="index.php"><img src="public/assets/view.png" alt="visuel"></a></div>
 
-        <menu>
+        <div id="menu">
             <hr>
-            <div>
+            <menu>
                 <p><a href="index.php">Accueil</a></p>
                 <p><a href="index.php?action=page&amp;name=author">A propos de l'auteur</a></p>
                 <p><a href="index.php?action=page&amp;name=novel">Le roman</a></p>
                 <p><a href="index.php?action=page&amp;name=chapters">Liste des chapitres publiés</a></p>
                 <p><a href="index.php?action=page&amp;name=contact">Contact</a></p>
-            </div>
+            </menu>
             <hr>
-        </menu>
+        </div>
 
         <div id="page_content">
             <?= $content ?>

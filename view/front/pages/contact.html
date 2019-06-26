@@ -1,0 +1,22 @@
+<h1>Contact</h1><br>
+
+<p>Cher lecteur, j'en suis certain, tu t'es déjà demandé : mais comment diable écrire à Jean Forteroche ?</p><br>
+<p>Heureusement pour toi, grâce à l'internet, c'est aujourd'hui très simple.</p><br>
+
+<div id="contact_bloc">
+    <div>
+        <p><strong>Adresse postale</strong><br>4 chemin du Circuit<br>48980 Fortenouvelle</p><br>
+    </div>
+    <div id="send_mail_form">
+        <p><strong>Envoi automatisé d'un mél</strong></p>
+        <form method="post" action="index.php?action=sendContactMail">
+            <label for="sender_name">Nom :</label><br>
+            <input type="text" id="sender_name" name="sender_name" required></input><br>
+            <label for="sender_address">Adresse mail : </label><br>
+            <input type="text" id="sender_address" name="sender_address" required></input><br>
+            <label for="sender_text">Message :</label><br>
+            <textarea id="sender_text" name="sender_text" required></textarea><br>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+</div>

@@ -40,23 +40,23 @@ header img { /* homepage only */
     margin-left:25%;
 }
 
-menu {
+#menu {
     width:90%;
     margin:auto;
 }
 
-menu div {
+#menu menu {
     padding:15px 0;
     display:flex;
     justify-content: space-between;
 }
 
-menu a:hover {
+#menu a:hover {
     position:relative;
     top:-3px;
 }
 
-menu hr {
+#menu hr {
     height:3px;
     background-color:black;
 }
@@ -99,12 +99,12 @@ h4 {
     text-align:justify;
 }
 
-#signature {
+.signature {
     height:30px;
     padding-left:10px;
 }
 
-#post_extract {
+.post_extract {
     margin-top: 30px;
 }
 

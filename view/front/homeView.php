@@ -28,16 +28,16 @@
             <h3>Le nouveau roman de Jean Forteroche</h3>
         </header>
 
-        <menu>
+        <div id="menu">
             <hr>
-            <div>
+            <menu>
                 <p><a href="index.php?action=page&amp;name=author">A propos de l'auteur</a></p>
                 <p><a href="index.php?action=page&amp;name=novel">Le roman</a></p>
                 <p><a href="index.php?action=page&amp;name=chapters">Liste des chapitres publiés</a></p>
                 <p><a href="index.php?action=page&amp;name=contact">Contact</a></p>
-            </div>
+            </menu>
             <hr>
-        </menu>
+        </div>
 
         <div id="home_widgets">
             <!-- 1 -->
@@ -77,12 +77,12 @@
             {
                 $date_creation_fr = DateTime::createFromFormat('Y-m-d', $data['date_creation']);
                 ?>
-                <div id="post_extract">
+                <div class="post_extract">
                     <h4><a class="plain_link" href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= $data['titre'] ?></a></h4>
                     <p><?= substr($data['contenu'],0,700) ?>... <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a></p>
                     <p>
                         <i>Publié le <?= $date_creation_fr->format('d/m/Y') ?> par votre serviteur, <?= $data['auteur'] ?></i>
-                        <img id="signature" alt="signature" src="public/assets/signature.png">
+                        <img class="signature" alt="signature" src="public/assets/signature.png">
                         <?php // Retrieves number of comments for direct link from homepage
                             $nbComments = commentsNb($data['id']);
                             if ($nbComments['COUNT(ID)'] == 0)

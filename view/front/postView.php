@@ -26,9 +26,9 @@
             <h1>Billet simple pour l'Alaska</h1>
         </header>
 
-        <menu>
+        <div id="menu">
             <hr>
-            <div>
+            <menu>
                 <?php
                 $lastPost = getLastPostId(); // to know which post is last (navigation display purpose)
                 $nextPost = getNextPostId($_GET['id']); // to reach for next post id in database
@@ -53,9 +53,9 @@
                     ?><p class="nav_disabled">Chapitre suivant</p><?php
                 }
                 ?>
-            </div>
+            </menu>
             <hr>
-        </menu>
+        </div>
 
         <div id="single_post">
             <h3><?= $post['titre'] ?></h3><br>
