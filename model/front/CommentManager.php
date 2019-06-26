@@ -28,17 +28,17 @@ class CommentManager extends Manager
         return $lastComment;
     }
 
-
     public function postComment($postId, $author, $message)
     {
         $db = $this->dbConnect();
 
         $dateCrea = date('Y-m-d');
 
+        $htmlAuthor = htmlspecialchars($author);
         $htmlMessage = htmlspecialchars($message);
 
         $comment = $db->prepare('INSERT INTO commentaires(post_id, auteur, date_creation, contenu) VALUES (?, ?, ?, ?)');
-        $affectedLines = $comment->execute(array($postId, $author, $dateCrea, $htmlMessage));
+        $affectedLines = $comment->execute(array($postId, $htmlAuthor, $dateCrea, $htmlMessage));
 
         return $affectedLines;
     }
